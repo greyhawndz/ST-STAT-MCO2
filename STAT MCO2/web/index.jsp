@@ -12,6 +12,13 @@
               href="css/semantic/semantic.min.css">
         <script src="css/semantic/semantic.min.js"></script>
 
+
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
         <title>Home</title>
         <style>
             #container {
@@ -26,6 +33,23 @@
             .headersection {
                 height: 100vh;
             }
+
+            #chartdivCoin {
+                width		: 100%;
+                height		: 500px;
+                font-size	: 11px;
+            }	
+            #chartdivCard {
+                width		: 100%;
+                height		: 500px;
+                font-size	: 11px;
+            }		
+            #chartdivMarble {
+                width		: 100%;
+                height		: 500px;
+                font-size	: 11px;
+            }	
+
         </style>
     </head>
     <body>
@@ -94,106 +118,97 @@
                             </div>
                         </div>
                         <div class="ui eight wide column inverted" style = "color: white">
-                            <!-- Styles -->
-                            <style>
-                                #chartdiv {
-                                    width		: 100%;
-                                    height		: 500px;
-                                    font-size	: 11px;
-                                }					
-                            </style>
 
-                            <!-- Resources -->
-                            <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-                            <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-                            <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-                            <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-                            <script src="https://www.amcharts.com/lib/3/themes/patterns.js"></script>
-
-                            <!-- Chart code -->
-                            <!-- Styles -->
-                            <style>
-                                #chartdiv {
-                                    width		: 100%;
-                                    height		: 500px;
-                                    font-size	: 11px;
-                                }					
-                            </style>
-
-                            <!-- Resources -->
-                            <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-                            <script src="https://www.amcharts.com/lib/3/serial.js"></script>
-                            <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
-                            <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-                            <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-
-                            <!-- Chart code -->
                             <script>
-                                    var chart = AmCharts.makeChart("chartdiv", {
-                                        "theme": "light",
-                                        "type": "serial",
-                                        "dataProvider": [{
-                                                "experiment": "1",
-                                                "ideal": 3.5,
-                                                "actual": 4.2
-                                            }, {
-                                                "experiment": "UK",
-                                                "ideal": 1.7,
-                                                "actual": 3.1
-                                            }, {
-                                                "experiment": "Canada",
-                                                "ideal": 2.8,
-                                                "actual": 2.9
-                                            }, {
-                                                "experiment": "Japan",
-                                                "ideal": 2.6,
-                                                "actual": 2.3
-                                            }, {
-                                                "experiment": "France",
-                                                "ideal": 1.4,
-                                                "actual": 2.1
-                                            }, {
-                                                "experiment": "Brazil",
-                                                "ideal": 2.6,
-                                                "actual": 4.9
-                                            }],
-                                        "valueAxes": [{
-                                                "unit": "%",
-                                                "position": "left",
-                                                "title": "Success Rate",
-                                            }],
-                                        "startDuration": 1,
-                                        "graphs": [{
-                                                "balloonText": "Ideal: <b>[[value]]</b>",
-                                                "fillAlphas": 0.9,
-                                                "lineAlpha": 0.2,
-                                                "title": "2004",
-                                                "type": "column",
-                                                "valueField": "ideal"
-                                            }, {
-                                                "balloonText": "Actual: <b>[[value]]</b>",
-                                                "fillAlphas": 0.9,
-                                                "lineAlpha": 0.2,
-                                                "title": "2005",
-                                                "type": "column",
-                                                "clustered": false,
-                                                "columnWidth": 0.5,
-                                                "valueField": "actual"
-                                            }],
-                                        "plotAreaFillAlphas": 0.1,
-                                        "categoryField": "experiment",
-                                        "categoryAxis": {
-                                            "gridPosition": "start"
-                                        },
-                                        "export": {
-                                            "enabled": true
-                                        }
+                                var chart = AmCharts.makeChart("chartdivCoin", {
+                                    "theme": "light",
+                                    "type": "serial",
+                                    "dataProvider": [{
+                                            "experiment": "1",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "2",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "3",
+                                            "ideal": 0.6,
+                                            "actual": 0.8
+                                        }, {
+                                            "experiment": "4",
+                                            "ideal": 0.5,
+                                            "actual": 0.6
+                                        }, {
+                                            "experiment": "5",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "6",
+                                            "ideal": 0.4,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "7",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "8",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "9",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "10",
+                                            "ideal": 0.6,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "11",
+                                            "ideal": 0.2,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "12",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }],
+                                    "valueAxes": [{
+                                            "unit": "%",
+                                            "position": "left",
+                                            "title": "Success Rate",
+                                        }],
+                                    "startDuration": 5,
+                                    "graphs": [{
+                                            "balloonText": "Ideal: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Ideal",
+                                            "type": "column",
+                                            "valueField": "ideal"
+                                        }, {
+                                            "balloonText": "Actual: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Actual",
+                                            "type": "column",
+                                            "clustered": false,
+                                            "columnWidth": 0.5,
+                                            "valueField": "actual"
+                                        }],
+                                    "plotAreaFillAlphas": 0.1,
+                                    "categoryField": "experiment",
+                                    "categoryAxis": {
+                                        "gridPosition": "start"
+                                    },
+                                    "export": {
+                                        "enabled": true
+                                    }
 
-                                    });
+                                });
                             </script>
 
                             <!-- HTML -->
-                            <div id="chartdiv"></div>	
+                            <div id="chartdivCoin"></div>	
                             <br>
                             <button class="ui fluid blue  button">Try it out</button>
 
@@ -208,18 +223,112 @@
                                 <img src="images/card.jpeg">
                             </div>
                         </div>
-                        <div class="ui eight wide column">
-                            <div class="ui content justify">Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations.</div>
-                            <br> <br>
-                            <button class="ui fluid blue  button">Add Friend</button>
+                        <div class="ui eight wide column inverted" style = "color: white">
+
+                            <style>
+                                #chartdivCard {
+                                    width		: 100%;
+                                    height		: 500px;
+                                    font-size	: 11px;
+                                }					
+                            </style>
+
+                            <!-- Resources -->
+
+                            <!-- Chart code -->
+                            <script>
+                                var chart = AmCharts.makeChart("chartdivCard", {
+                                    "theme": "light",
+                                    "type": "serial",
+                                    "dataProvider": [{
+                                            "experiment": "1",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "2",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "3",
+                                            "ideal": 0.6,
+                                            "actual": 0.8
+                                        }, {
+                                            "experiment": "4",
+                                            "ideal": 0.5,
+                                            "actual": 0.6
+                                        }, {
+                                            "experiment": "5",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "6",
+                                            "ideal": 0.4,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "7",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "8",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "9",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "10",
+                                            "ideal": 0.6,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "11",
+                                            "ideal": 0.2,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "12",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }],
+                                    "valueAxes": [{
+                                            "unit": "%",
+                                            "position": "left",
+                                            "title": "Success Rate",
+                                        }],
+                                    "startDuration": 5,
+                                    "graphs": [{
+                                            "balloonText": "Ideal: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Ideal",
+                                            "type": "column",
+                                            "valueField": "ideal"
+                                        }, {
+                                            "balloonText": "Actual: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Actual",
+                                            "type": "column",
+                                            "clustered": false,
+                                            "columnWidth": 0.5,
+                                            "valueField": "actual"
+                                        }],
+                                    "plotAreaFillAlphas": 0.1,
+                                    "categoryField": "experiment",
+                                    "categoryAxis": {
+                                        "gridPosition": "start"
+                                    },
+                                    "export": {
+                                        "enabled": true
+                                    }
+
+                                });
+                            </script>
+
+                            <!-- HTML -->
+                            <div id="chartdivCard"></div>	
+                            <br>
+                            <button class="ui fluid blue  button">Try it out</button>
+
                         </div>
                     </div>
                     <br> <br>
@@ -231,20 +340,117 @@
                                 <img src="images/marble.png">
                             </div>
                         </div>
-                        <div class="ui eight wide column">
-                            <div class="ui content justify">Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations.</div>
-                            <br> <br>
-                            <button class="ui fluid blue button">Add Friend</button>
+                        <div class="ui eight wide column inverted" style = "color: white">
+
+                            <style>
+                                #chartdivCard {
+                                    width		: 100%;
+                                    height		: 500px;
+                                    font-size	: 11px;
+                                }					
+                            </style>
+
+                            <!-- Resources -->
+
+                            <!-- Chart code -->
+                            <script>
+                                var chart = AmCharts.makeChart("chartdivMarble", {
+                                    "theme": "light",
+                                    "type": "serial",
+                                    "dataProvider": [{
+                                            "experiment": "1",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "2",
+                                            "ideal": 0.3,
+                                            "actual": 0.2
+                                        }, {
+                                            "experiment": "3",
+                                            "ideal": 0.6,
+                                            "actual": 0.8
+                                        }, {
+                                            "experiment": "4",
+                                            "ideal": 0.5,
+                                            "actual": 0.6
+                                        }, {
+                                            "experiment": "5",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "6",
+                                            "ideal": 0.4,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "7",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "8",
+                                            "ideal": 0.4,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "9",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "10",
+                                            "ideal": 0.6,
+                                            "actual": 0.7
+                                        }, {
+                                            "experiment": "11",
+                                            "ideal": 0.2,
+                                            "actual": 0.3
+                                        }, {
+                                            "experiment": "12",
+                                            "ideal": 0.5,
+                                            "actual": 0.3
+                                        }],
+                                    "valueAxes": [{
+                                            "unit": "%",
+                                            "position": "left",
+                                            "title": "Success Rate",
+                                        }],
+                                    "startDuration": 5,
+                                    "graphs": [{
+                                            "balloonText": "Ideal: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Ideal",
+                                            "type": "column",
+                                            "valueField": "ideal"
+                                        }, {
+                                            "balloonText": "Actual: <b>[[value]]</b>",
+                                            "fillAlphas": 0.9,
+                                            "lineAlpha": 0.2,
+                                            "title": "Actual",
+                                            "type": "column",
+                                            "clustered": false,
+                                            "columnWidth": 0.5,
+                                            "valueField": "actual"
+                                        }],
+                                    "plotAreaFillAlphas": 0.1,
+                                    "categoryField": "experiment",
+                                    "categoryAxis": {
+                                        "gridPosition": "start"
+                                    },
+                                    "export": {
+                                        "enabled": true
+                                    }
+
+                                });
+                            </script>
+
+                            <!-- HTML -->
+                            <div id="chartdivMarble"></div>	
+                            <br>
+                            <button class="ui fluid blue  button">Try it out</button>
+
                         </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
                 </div>
 
                 <script>
