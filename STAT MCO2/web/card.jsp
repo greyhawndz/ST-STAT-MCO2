@@ -54,25 +54,14 @@
                         Input fields
                     </h1>
                     <br>
+                    <div id="distributionsTab" class="ui top attached tabular menu" style="margin-top: 30px;">
+                        <div class="item active" data-tab="1">Binomial</div>
+                        <div class="item" data-tab="2">Negative Binomial</div>
+                        <div class="item" data-tab="3">Hypergeometric</div>
+                        <div class="item" data-tab="4">Multinomial</div>
+                    </div>
+                    <div class="ui bottom attached tab segment active" data-tab="1">
                     <div class="ui form">
-                        <div class="field">
-                            <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                            </select>
-                        </div>
                         <div class="three fields">
                             <div class="field">
                                 <label>Number of Trials</label>
@@ -104,10 +93,21 @@
                         <br>
                         <div class="ui fluid blue submit button" onclick="location.href = 'cardResults.jsp';">Draw</div>
                     </div>
+                    </div>
+                     <div class="ui bottom attached tab segment" data-tab="2">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="3">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="4">
+                    </div>
                 </div>
                 <br>
             </div>
+            <script>
+                $('#distributionsTab .item')
+                    .tab();
 
+            </script>
         <jsp:include page="footer.html"></jsp:include>
 
     </body>

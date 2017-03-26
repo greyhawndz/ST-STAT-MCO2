@@ -47,68 +47,68 @@
                     </h1>
                     <h1 class="ui header inverted centered" style="font-size: 7rem;">COIN TOSS
                     </h1>
-                   
+
                 </div>
                 <div class="ui container sectioncontent ">
                     <h1 class="ui horizontal divider header">
                         Input fields
                     </h1>
                     <br>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>
-                        <div class="three fields">
-                            <div class="field">
-                                <label>Number of Trials</label>
-                                <input type="text" placeholder="N">
-                            </div>
-                            <div class="field">
-                                <label>Number of Experiment Simulations</label>
-                                <input type="text" placeholder="10 to 100000">
-                            </div>                  
-                            <div class="field">
-                                <label>Probability of Success</label>
-                                <div class="ui disabled input">
-                                <input type="text" placeholder="50" value = "50">
+
+                    <div id="distributionsTab" class="ui top attached tabular menu" style="margin-top: 30px;">
+                        <div class="item active" data-tab="1">Binomial</div>
+                        <div class="item" data-tab="2">Negative Binomial</div>
+                        <div class="item" data-tab="3">Hypergeometric</div>
+                        <div class="item" data-tab="4">Multinomial</div>
+                    </div>
+                    <div class="ui bottom attached tab segment active" data-tab="1">
+                        <div class="ui form">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui disabled input">
+                                        <input type="text" placeholder="50" value = "50">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Definition of Success</label>
+                                    <input type="text" placeholder="number">
+                                </div>
+                                <div class="field">
+                                    <label>Heads or Tails</label>
+                                    <select class="ui fluid dropdown">
+                                        <option value="">Select</option>
+                                        <option value="heads">Heads</option>
+                                        <option value="tails">Tails</option>
+                                    </select>
                                 </div>
                             </div>
-                             <div class="field">
-                                <label>Definition of Success</label>
-                                <input type="text" placeholder="number">
-                             </div>
-                           <div class="field">
-                            <label>Heads or Tails</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="heads">Heads</option>
-                                <option value="tails">Tails</option>
-                            </select>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
                         </div>
-
-
-                        </div>
-                        <br>
-                        <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="2">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="3">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="4">
                     </div>
                 </div>
                 <br>
             </div>
+            <script>
+                $('#distributionsTab .item')
+                    .tab();
+
+            </script>
 
         <jsp:include page="footer.html"></jsp:include>
 

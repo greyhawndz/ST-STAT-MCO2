@@ -53,27 +53,14 @@
                         Input fields
                     </h1>
                     <br>
+                    <div id="distributionsTab" class="ui top attached tabular menu" style="margin-top: 30px;">
+                        <div class="item active" data-tab="1">Binomial</div>
+                        <div class="item" data-tab="2">Negative Binomial</div>
+                        <div class="item" data-tab="3">Hypergeometric</div>
+                        <div class="item" data-tab="4">Multinomial</div>
+                    </div>
+                    <div class="ui bottom attached tab segment active" data-tab="1">
                     <div class="ui form">
-                        <div class="field">
-                            <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-
-                                
-                            </select>
-                        </div>
                         <div class="three fields">
                             <div class="field">
                                 <label>Number of Trials</label>
@@ -91,10 +78,21 @@
                         <br>
                         <div class="ui fluid blue submit button" onclick="location.href = 'marbleResults.jsp';">Pick</div>
                     </div>
+                    </div>
+                     <div class="ui bottom attached tab segment" data-tab="2">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="3">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="4">
+                    </div>
                 </div>
                 <br>
             </div>
+            <script>
+                $('#distributionsTab .item')
+                    .tab();
 
+            </script>
         <jsp:include page="footer.html"></jsp:include>
 
     </body>
