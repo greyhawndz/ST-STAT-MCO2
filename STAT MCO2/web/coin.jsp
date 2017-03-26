@@ -63,7 +63,7 @@
                     </div>
                     <div class="ui bottom attached tab segment active" data-tab="1">
                         <div class="ui form">
-                            <div class="three fields">
+                            <div class="five fields">
                                 <div class="field">
                                     <label>Number of Trials</label>
                                     <input type="text" placeholder="N">
@@ -97,7 +97,7 @@
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="2">
                         <div class="ui form">
-                            <div class="fields">
+                            <div class="five fields">
                                 <div class="field">
                                     <label>Number of Trials</label>
                                     <input type="text" placeholder="N">
@@ -131,7 +131,7 @@
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="3">
                         <div class="ui form">
-                            <div class=" fields">
+                            <div class="three fields">
                                 <div class="field">
                                     <label>Number of Trials</label>
                                     <input type="text" placeholder="N">
@@ -147,7 +147,7 @@
                                
                             </div>
 
-                            <div class=" fields">
+                            <div class="four fields">
                                <div class="field">
                                     <label>Definition of Success</label>
                                     <select class="ui fluid dropdown">

@@ -100,7 +100,7 @@
                                 <div class="field">
                                     <label>Probability of Success</label>
                                     <div class="ui input">
-                                        <input type="text" placeholder="" >
+                                        <input type="text" placeholder="0.0 to 1.0" >
                                     </div>
                                 </div>
                                 <div class="field">
@@ -115,22 +115,21 @@
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="3">
                         <div class="ui form">
-                            <div class=" fields">
+                            <div class="three fields">
                                 <div class="field">
                                     <label>Number of Trials</label>
                                     <input type="text" placeholder="N">
                                 </div>
                                 <div class="field">
                                     <label>Number of Items in the Population</label>
-                                    <input type="text" placeholder="0 to 52">
+                                    <input type="text" placeholder="number">
                                 </div> 
                                   <div class="field">
                                     <label>Number of Success in Population</label>
                                     <input type="text" placeholder="number">
                                 </div>
                             </div>
-                            <div class=" fields">
-                            
+                            <div class="three fields">
                                 <div class="field">
                                     <label>Number of Experiment Simulations</label>
                                     <input type="text" placeholder="10 to 100000">
@@ -147,8 +146,6 @@
                                         <input type="text" placeholder="0 to N" >
                                     </div>
                                 </div>
-
-
                             </div>
                             <br>
                             <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
