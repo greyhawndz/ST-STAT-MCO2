@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="ui fluid blue submit button">Draw</div>
+                        <div class="ui fluid blue submit button" onclick="location.href = 'cardResults.jsp';">Draw</div>
                     </div>
                 </div>
                 <br>
