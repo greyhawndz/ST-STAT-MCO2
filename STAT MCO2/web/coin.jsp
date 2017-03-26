@@ -96,8 +96,89 @@
                         </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="2">
+                        <div class="ui form">
+                            <div class="fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui disabled input">
+                                        <input type="text" placeholder="50" value = "50">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Definition of Success</label>
+                                    <input type="text" placeholder="number">
+                                </div>
+                                <div class="field">
+                                    <label>Heads or Tails</label>
+                                    <select class="ui fluid dropdown">
+                                        <option value="">Select</option>
+                                        <option value="heads">Heads</option>
+                                        <option value="tails">Tails</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                        </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="3">
+                        <div class="ui form">
+                            <div class=" fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Items in the Population</label>
+                                    <input type="text" placeholder="0 to N">
+                                </div> 
+                                  <div class="field">
+                                    <label>Number of Success in Population</label>
+                                    <input type="text" placeholder="number">
+                                </div>
+                               
+                            </div>
+
+                            <div class=" fields">
+                               <div class="field">
+                                    <label>Definition of Success</label>
+                                    <select class="ui fluid dropdown">
+                                        <option value="">Select</option>
+                                        <option value="heads">Heads</option>
+                                        <option value="tails">Tails</option>
+                                    </select>
+                                </div>
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui disabled input">
+                                        <input type="text" placeholder="50" value = "50">
+                                    </div>
+                                </div>
+                                 <div class="field">
+                                    <label>Number of Correct Trials</label>
+                                    <div class="ui disabled input">
+                                        <input type="text" placeholder="0 to N" >
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                        </div>
+                        
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="4">
                     </div>
@@ -106,7 +187,7 @@
             </div>
             <script>
                 $('#distributionsTab .item')
-                    .tab();
+                        .tab();
 
             </script>
 
