@@ -1,13 +1,12 @@
 <%-- 
-    Document   : card.jsp
-    Created on : Mar 26, 2017, 5:21:19 PM
+    Document   : marble
+    Created on : Mar 26, 2017, 5:41:31 PM
     Author     : glenn
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-   <head>
+ <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -17,7 +16,7 @@
           href="css/semantic/semantic.min.css">
     <script src="css/semantic/semantic.min.js"></script>
 
-    <title>Card</title>
+    <title>Marble</title>
     <style>
         #container {
             background-color: #ffffff;
@@ -39,13 +38,13 @@
 
     <body>
         <div class="container" style="background-color: white;">
-            <div class="headersection coverFixed" style="background-image: url(images/cardHeader.jpg);  background-position: 0 -120px; ">
+            <div class="headersection coverFixed" style="background-image: url(images/marbleHeader.jpg);  background-position: 0 -120px; ">
                 <jsp:include page="headerInverted.html"></jsp:include>
 
                     <h1 class="ui header inverted centered" style="font-size: 3rem; padding-top:140px;">
                         Experiment
                     </h1>
-                    <h1 class="ui header inverted centered" style="font-size: 7rem;">DRAW CARD
+                    <h1 class="ui header inverted centered" style="font-size: 7rem;">PICK A MARBLE
                     </h1>
                     
                 </div>
@@ -59,18 +58,20 @@
                             <label>ID</label>
                             <select class="ui fluid dropdown">
                                 <option value="">Select</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                                <option value="32">32</option>
+                                <option value="33">33</option>
+                                <option value="34">34</option>
+                                <option value="35">35</option>
+                                <option value="36">36</option>
+
+                                
                             </select>
                         </div>
                         <div class="three fields">

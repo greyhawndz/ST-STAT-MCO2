@@ -25,6 +25,7 @@
 
         <div class="container" style="background-color: white;">
             <jsp:include page="header.html"></jsp:include>
+
                 <div class="ui container">
                     <br>
                     <h1 class="ui horizontal divider header">Select</h1>
@@ -67,12 +68,8 @@
                         </div>
                     </div>
 
-
                 <jsp:include page="navbar.html"></jsp:include>
-
-
-
-                    <h1 class="ui horizontal divider header">Toss coin</h1>
+                    <h1 class="ui horizontal divider header">COIN TOSS</h1>
                     <br>
                     <div class="ui grid">
                         <div class="ui eight wide column ">
@@ -95,7 +92,7 @@
                         </div>
                     </div>
                     <br>
-                    <h1 class="ui horizontal divider header">Toss coin</h1>
+                    <h1 class="ui horizontal divider header">DECK OF CARDS</h1>
                     <br>
                     <div class="ui grid">
                         <div class="ui eight wide column ">
@@ -118,7 +115,7 @@
                         </div>
                     </div>
                     <br> <br>
-                    <h1 class="ui horizontal divider header">Toss coin</h1>
+                    <h1 class="ui horizontal divider header">GET MARBLES</h1>
                     <br>
                     <div class="ui grid">
                         <div class="ui eight wide column ">

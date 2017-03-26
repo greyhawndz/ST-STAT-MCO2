@@ -47,9 +47,7 @@
                     </h1>
                     <h1 class="ui header inverted centered" style="font-size: 7rem;">COIN TOSS
                     </h1>
-                    <h1 class="ui header centered">
-                        <div class="ui large basic button inverted centered"><b>View</b> <i class="right arrow icon"></i></div>
-                    </h1>
+                   
                 </div>
                 <div class="ui container sectioncontent ">
                     <h1 class="ui horizontal divider header">
