@@ -13,7 +13,7 @@ import Helper.ExperimentType;
  */
 public abstract class Experiment {
     private int id;
-    private int numTrials;
+    int numTrials;
     private ExperimentType experimentType;
     
     public Experiment(int id, int numTrials, ExperimentType experimentType){
