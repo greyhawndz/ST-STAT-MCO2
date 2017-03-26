@@ -1,13 +1,10 @@
 <%-- 
-    Document   : coin
-    Created on : Mar 26, 2017, 3:42:29 PM
+    Document   : coinResults
+    Created on : Mar 26, 2017, 4:57:20 PM
     Author     : glenn
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
+ <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -39,18 +36,6 @@
 
     <body>
         <div class="container" style="background-color: white;">
-            <div class="headersection coverFixed" style="background-image: url(images/coinHeader.jpg);  background-position: 0 -120px; ">
-                <jsp:include page="headerInverted.html"></jsp:include>
-
-                    <h1 class="ui header inverted centered" style="font-size: 3rem; padding-top:140px;">
-                        Experiment
-                    </h1>
-                    <h1 class="ui header inverted centered" style="font-size: 7rem;">COIN TOSS
-                    </h1>
-                    <h1 class="ui header centered">
-                        <div class="ui large basic button inverted centered"><b>View</b> <i class="right arrow icon"></i></div>
-                    </h1>
-                </div>
                 <div class="ui container sectioncontent ">
                     <h1 class="ui horizontal divider header">
                         Input fields
@@ -59,21 +44,7 @@
                     <div class="ui form">
                         <div class="field">
                             <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
+                            <input type="text" placeholder="1 to 36">
                         </div>
                         <div class="three fields">
                             <div class="field">
@@ -86,7 +57,7 @@
                             </div>
                             <div class="field">
                                 <label>Probability of Success</label>
-                                <input type="text" placeholder="50">
+                                <input type="text" placeholder="1 to 100">
                             </div>
                         </div>
                         <br>
