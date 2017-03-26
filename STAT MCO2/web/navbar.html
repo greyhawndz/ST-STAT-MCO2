@@ -1,0 +1,42 @@
+<style>
+
+    .main.menu.fixed {
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .main.menu.fixed {
+        box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.2);
+    }
+
+</style>
+
+
+
+<div id="mainmenu"
+     class="ui large top fixed hidden four item menu main secondary pointing menu borderless  "
+     style="visibility: hidden; z-index: 20;">
+
+    <div class="ui container">
+
+        <div class="ui header huge">MC02</div>
+
+        <a href="index.jsp" class="item active "> Home </a> 
+        <a href="coin.jsp" class="item"> Coin </a> 
+        <a href="card.jsp" class="item "> Card </a> 
+        <a href="marble.jsp" class="item"> Marble </a>
+    </div>
+</div>
+
+<br> <br> <br>
+
+<script>
+    $('#mainmenu').visibility({
+        once: false,
+        onBottomPassed: function () {
+            $('.fixed.menu').transition('fade in');
+        },
+        onBottomPassedReverse: function () {
+            $('.fixed.menu').transition('fade out');
+        }
+    });
+</script>
