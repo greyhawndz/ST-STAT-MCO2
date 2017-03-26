@@ -210,10 +210,11 @@
                             <!-- HTML -->
                             <div id="chartdivCoin"></div>	
                             <br>
-                            <button class="ui fluid blue  button">Try it out</button>
+                            <button class="ui fluid blue  button" onclick="location.href = 'coin.jsp';">Try it out</button>
 
                         </div>
                     </div>
+                    <br>
                     <br>
                     <h1 class="ui horizontal divider header">DECK OF CARDS</h1>
                     <br>
@@ -327,8 +328,8 @@
                             <!-- HTML -->
                             <div id="chartdivCard"></div>	
                             <br>
-                            <button class="ui fluid blue  button">Try it out</button>
-
+                            <button class="ui fluid blue  button" onclick="location.href = 'card.jsp';">Try it out</button>
+ 
                         </div>
                     </div>
                     <br> <br>
@@ -444,7 +445,7 @@
                             <!-- HTML -->
                             <div id="chartdivMarble"></div>	
                             <br>
-                            <button class="ui fluid blue  button">Try it out</button>
+                            <button class="ui fluid blue  button" onclick="location.href = 'marble.jsp';">Try it out</button>
 
                         </div>
                     </div>
