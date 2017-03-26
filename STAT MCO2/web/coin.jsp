@@ -81,13 +81,27 @@
                             <div class="field">
                                 <label>Number of Experiment Simulations</label>
                                 <input type="text" placeholder="10 to 100000">
-                            </div>
+                            </div>                  
                             <div class="field">
                                 <label>Probability of Success</label>
                                 <div class="ui disabled input">
                                 <input type="text" placeholder="50" value = "50">
                                 </div>
                             </div>
+                             <div class="field">
+                                <label>Definition of Success</label>
+                                <input type="text" placeholder="number">
+                             </div>
+                           <div class="field">
+                            <label>Heads or Tails</label>
+                            <select class="ui fluid dropdown">
+                                <option value="">Select</option>
+                                <option value="heads">Heads</option>
+                                <option value="tails">Tails</option>
+                            </select>
+                        </div>
+
+
                         </div>
                         <br>
                         <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>

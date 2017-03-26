@@ -79,13 +79,27 @@
                                 <input type="text" placeholder="N">
                             </div>
                             <div class="field">
-                                <label>Number of Experiment Simulations</label>
-                                <input type="text" placeholder="10 to 100000">
+                                <label>Number of cards to be drawn</label>
+                                <input type="text" placeholder="number">
                             </div>
-                            <div class="field">
-                                <label>Probability of Success</label>
-                                <input type="text" placeholder="0.0 to 1.0">
+                             <div class="field">
+                                <label>Target number of cards</label>
+                                <input type="text" placeholder="number">
                             </div>
+                           <div class="field">
+                            <label>Suit</label>
+                            <select class="ui fluid dropdown">
+                                <option value="">Select</option>
+                                <option value="clover">Clover</option>
+                                <option value="spade">Spade</option>
+                                <option value="diamond">Diamond</option>
+                                <option value="heart">Heart</option>
+                                <option value="red">Red</option>
+                                <option value="black">Black</option>
+                              
+                            </select>
+                        </div>
+                            
                         </div>
                         <br>
                         <div class="ui fluid blue submit button" onclick="location.href = 'cardResults.jsp';">Draw</div>
