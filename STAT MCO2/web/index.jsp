@@ -19,12 +19,28 @@
                 position: relative;
                 z-index: 1;
             }
+            .coverFixed {
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            .headersection {
+                height: 100vh;
+            }
         </style>
     </head>
     <body>
 
         <div class="container" style="background-color: white;">
-            <jsp:include page="header.html"></jsp:include>
+            <div class="headersection coverFixed" style="background-image: url(images/indexHeader.jpg);  background-position: 0 -120px; ">
+                <jsp:include page="headerInverted.html"></jsp:include>
+
+                    <h1 class="ui header inverted centered" style="font-size: 3rem; padding-top:140px;">
+                        PROBABILITY DISTRIBUTION
+                    </h1>
+                    <h1 class="ui header inverted centered" style="font-size: 7rem;">MCO2
+                    </h1>
+
+                </div>
 
                 <div class="ui container">
                     <br>
@@ -38,7 +54,7 @@
                                 <a class="header">Coin</a>
                                 <div class="description">Probability of getting heads</div>
                                 <br>
-                                <button class="ui blue fluid button">Go To Page</button>
+                                <button class="ui blue fluid button" onclick="location.href = 'coin.jsp';">Go To Page</button>
 
                             </div>
                         </div>
@@ -48,9 +64,9 @@
                             </div>
                             <div class="content">
                                 <a class="header">Card</a>
-                                <div class="description">Probability of getting heads</div>
+                                <div class="description">Probability of getting a card</div>
                                 <br>
-                                <button class="ui blue fluid button">Go To Page</button>
+                                <button class="ui blue fluid button" onclick="location.href = 'card.jsp';">Go To Page</button>
 
                             </div>
                         </div>
@@ -60,9 +76,9 @@
                             </div>
                             <div class="content">
                                 <a class="header">Marble</a>
-                                <div class="description">Probability of getting heads</div>
+                                <div class="description">Probability of getting a marble</div>
                                 <br>
-                                <button class="ui blue fluid button">Go To Page</button>
+                                <button class="ui blue fluid button" onclick="location.href = 'marble.jsp';">Go To Page</button>
 
                             </div>
                         </div>
@@ -77,18 +93,110 @@
                                 <img src="images/coin.jpg">
                             </div>
                         </div>
-                        <div class="ui eight wide column">
-                            <div class="ui content justify">Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations. Get probability of getting a
-                                head or a tail based on simulations.</div>
-                            <br> <br>
-                            <button class="ui blue fluid button">Add Friend</button>
+                        <div class="ui eight wide column inverted" style = "color: white">
+                            <!-- Styles -->
+                            <style>
+                                #chartdiv {
+                                    width		: 100%;
+                                    height		: 500px;
+                                    font-size	: 11px;
+                                }					
+                            </style>
+
+                            <!-- Resources -->
+                            <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+                            <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+                            <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+                            <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+                            <script src="https://www.amcharts.com/lib/3/themes/patterns.js"></script>
+
+                            <!-- Chart code -->
+                            <!-- Styles -->
+                            <style>
+                                #chartdiv {
+                                    width		: 100%;
+                                    height		: 500px;
+                                    font-size	: 11px;
+                                }					
+                            </style>
+
+                            <!-- Resources -->
+                            <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+                            <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+                            <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+                            <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+                            <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+                            <!-- Chart code -->
+                            <script>
+                                    var chart = AmCharts.makeChart("chartdiv", {
+                                        "theme": "light",
+                                        "type": "serial",
+                                        "dataProvider": [{
+                                                "experiment": "1",
+                                                "ideal": 3.5,
+                                                "actual": 4.2
+                                            }, {
+                                                "experiment": "UK",
+                                                "ideal": 1.7,
+                                                "actual": 3.1
+                                            }, {
+                                                "experiment": "Canada",
+                                                "ideal": 2.8,
+                                                "actual": 2.9
+                                            }, {
+                                                "experiment": "Japan",
+                                                "ideal": 2.6,
+                                                "actual": 2.3
+                                            }, {
+                                                "experiment": "France",
+                                                "ideal": 1.4,
+                                                "actual": 2.1
+                                            }, {
+                                                "experiment": "Brazil",
+                                                "ideal": 2.6,
+                                                "actual": 4.9
+                                            }],
+                                        "valueAxes": [{
+                                                "unit": "%",
+                                                "position": "left",
+                                                "title": "Success Rate",
+                                            }],
+                                        "startDuration": 1,
+                                        "graphs": [{
+                                                "balloonText": "Ideal: <b>[[value]]</b>",
+                                                "fillAlphas": 0.9,
+                                                "lineAlpha": 0.2,
+                                                "title": "2004",
+                                                "type": "column",
+                                                "valueField": "ideal"
+                                            }, {
+                                                "balloonText": "Actual: <b>[[value]]</b>",
+                                                "fillAlphas": 0.9,
+                                                "lineAlpha": 0.2,
+                                                "title": "2005",
+                                                "type": "column",
+                                                "clustered": false,
+                                                "columnWidth": 0.5,
+                                                "valueField": "actual"
+                                            }],
+                                        "plotAreaFillAlphas": 0.1,
+                                        "categoryField": "experiment",
+                                        "categoryAxis": {
+                                            "gridPosition": "start"
+                                        },
+                                        "export": {
+                                            "enabled": true
+                                        }
+
+                                    });
+                            </script>
+
+                            <!-- HTML -->
+                            <div id="chartdiv"></div>	
+                            <br>
+                            <button class="ui fluid blue  button">Try it out</button>
+
                         </div>
                     </div>
                     <br>
