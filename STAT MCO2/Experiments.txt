@@ -1,0 +1,50 @@
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 11
+Actual Probability: 0.55
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 9
+Actual Probability: 0.45
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 11
+Actual Probability: 0.55
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 8
+Actual Probability: 0.4
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 9
+Actual Probability: 0.45
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 13
+Actual Probability: 0.65
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 10
+Actual Probability: 0.5
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 9
+Actual Probability: 0.45
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 11
+Actual Probability: 0.55
+
+Coin Experiment 1:
+Experiment Type: Binomial Experiment
+Number of successes: 9
+Actual Probability: 0.45
+
