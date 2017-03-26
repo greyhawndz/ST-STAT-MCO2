@@ -7,6 +7,7 @@ package Model;
 
 import Helper.ExperimentType;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -22,10 +23,12 @@ public class CoinExperiment{
     private double failure;
     private Logger logger;
     private int experimentSuccess;
-    Random rand;
-    boolean happens;
+    private Random rand;
+    private boolean happens;
+    private int experimentTrials;
+    private ArrayList experimentOutcomes;
     
-    public CoinExperiment(int id, int trials, double probability, int numSuccesses){
+    public CoinExperiment(int id, int trials, double probability, int numSuccesses, int experimentTrials){
         this.id = id;
         this.trials = trials;
         this.numSuccesses = numSuccesses;
@@ -34,6 +37,8 @@ public class CoinExperiment{
         logger = new Logger();
         experimentSuccess = 0;
         rand = new Random();
+        this.experimentTrials = experimentTrials;
+        experimentOutcomes = new ArrayList();
     }
     
     
@@ -55,23 +60,60 @@ public class CoinExperiment{
     private void binomialExperiment() throws IOException{
         
         double result = combination(trials,numSuccesses) * Math.pow(probability, numSuccesses) * Math.pow(failure, trials - numSuccesses);
+        double average = 0;
+        int total = 0;
         System.out.println("Ideal Binomial Experiment Probability: " +result);
-        for(int i = 0; i < trials; i++){
-            happens = rand.nextDouble() < probability;
-            if(happens){
-                experimentSuccess++;
+        for(int i = 0; i < experimentTrials; i++){
+                for(int j = 0; j < trials; j++){
+                happens = rand.nextDouble() < probability;
+                if(happens){
+                    experimentSuccess++;
+                }
             }
+                System.out.println("Experiment Success: " +experimentSuccess);
+                experimentOutcomes.add(experimentSuccess);
+                experimentSuccess = 0;
         }
-        System.out.println("Experiment Success:" +experimentSuccess);
-        System.out.println("Experiment trials: " +trials);
-        double experimentalProbability = (double) experimentSuccess / trials;
-        System.out.println("Actual Binomial Experiment Probability: " +experimentalProbability);
         
-        logger.logExperiment(id, "Coin", "Binomial Experiment", experimentSuccess, experimentalProbability);
+        for(int i = 0; i < experimentOutcomes.size(); i++){
+            System.out.println("Successes: " +experimentOutcomes.get(i));
+            total += (int) experimentOutcomes.get(i);
+        }
+        
+        average = (double) (total / experimentOutcomes.size());
+        double actualProb = (double) (average / experimentTrials);
+        System.out.println("Average: " +average);
+        System.out.println("Actual Probability: " +actualProb );
+        logger.logExperiment(id, "Coin", "Binomial Experiment", average, actualProb, result, trials, experimentTrials);
     }
     
-    private void negativeBinomialExperiment(){
+    private void negativeBinomialExperiment() throws IOException{
+        double result = combination(trials - 1,numSuccesses - 1) * Math.pow(probability, numSuccesses) * Math.pow(failure, trials - numSuccesses);
+        double average = 0;
+        int total = 0;
+        System.out.println("Ideal Negative Binomial Experiment Probability: " +result);
+        for(int i = 0; i < experimentTrials; i++){
+                for(int j = 0; j < trials; j++){
+                happens = rand.nextDouble() < probability;
+                if(happens){
+                    experimentSuccess++;
+                }
+            }
+                System.out.println("Experiment Success: " +experimentSuccess);
+                experimentOutcomes.add(experimentSuccess);
+                experimentSuccess = 0;
+        }
         
+        for(int i = 0; i < experimentOutcomes.size(); i++){
+            System.out.println("Successes " +experimentOutcomes.get(i));
+            total += (int) experimentOutcomes.get(i);
+        }
+        
+        average = (double) total / experimentOutcomes.size();
+        double actualProb = (double) average / experimentTrials;
+        System.out.println("Average: " +average);
+        System.out.println("Actual Probability: " +actualProb );
+        logger.logExperiment(id, "Coin", "Binomial Experiment", average, actualProb, result, trials, experimentTrials);
     }
     
     private void multinomialExperiment(){
@@ -95,9 +137,6 @@ public class CoinExperiment{
     
     private long combination(int n, int r){
         long combination = 1;
-        System.out.println("N = " +n);
-        System.out.println("R = " +r);
-        System.out.println(factorial(r) * factorial(n-r));
         combination = factorial(n)/ (factorial(r) * factorial(n-r));
         return combination;
     }
