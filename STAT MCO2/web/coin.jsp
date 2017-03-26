@@ -84,7 +84,9 @@
                             </div>
                             <div class="field">
                                 <label>Probability of Success</label>
-                                <input type="text" placeholder="50">
+                                <div class="ui disabled input">
+                                <input type="text" placeholder="50" value = "50">
+                                </div>
                             </div>
                         </div>
                         <br>

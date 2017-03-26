@@ -88,7 +88,7 @@
                             </div>
                             <div class="content">
                                 <a class="header">Card</a>
-                                <div class="description">Probability of getting a card</div>
+                                <div class="description">Probability of cards</div>
                                 <br>
                                 <button class="ui blue fluid button" onclick="location.href = 'card.jsp';">Go To Page</button>
 
@@ -100,7 +100,7 @@
                             </div>
                             <div class="content">
                                 <a class="header">Marble</a>
-                                <div class="description">Probability of getting a marble</div>
+                                <div class="description">Probability marbles</div>
                                 <br>
                                 <button class="ui blue fluid button" onclick="location.href = 'marble.jsp';">Go To Page</button>
 
@@ -333,7 +333,7 @@
                         </div>
                     </div>
                     <br> <br>
-                    <h1 class="ui horizontal divider header">GET MARBLES</h1>
+                    <h1 class="ui horizontal divider header">DRAW MARBLES</h1>
                     <br>
                     <div class="ui grid">
                         <div class="ui eight wide column ">
