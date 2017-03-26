@@ -7,6 +7,7 @@ package Driver;
 
 import Helper.ExperimentType;
 import Model.CoinExperiment;
+import Model.Experiment;
 import java.io.IOException;
 
 /**
@@ -15,13 +16,16 @@ import java.io.IOException;
  */
 public class Driver {
     public static void main(String[] args) throws IOException {
-            CoinExperiment experiment = new CoinExperiment(1, 20, 0.5,12,20);
-            experiment.performExperiment(ExperimentType.binomial);
+            //CoinExperiment experiment = new CoinExperiment(1, 20, 0.5,12,20);
+            //experiment.performExperiment(ExperimentType.hyperGeometric);
+            Experiment exp = new Experiment(2, 30, 26, 26, 5);
+            exp = new Experiment(5, 200, 20, 0.5, "pos");
+            exp = new Experiment(3, 200, 2, 0.5, "neg");
+            exp = new Experiment(new int[] {1, 1, 1, 2}, 200, 5, "c(0.25,0.25,0.25,0.25)");
         
         
-        
-            CoinExperiment negExperiment = new CoinExperiment(4, 15, 0.5,3,20);
-            negExperiment.performExperiment(ExperimentType.negativeBinomial);
+            //CoinExperiment negExperiment = new CoinExperiment(4, 15, 0.5,3,20);
+            //negExperiment.performExperiment(ExperimentType.negativeBinomial);
         
         
         
