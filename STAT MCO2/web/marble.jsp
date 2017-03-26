@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="ui fluid blue submit button" onclick="location.href = 'marbleResults.jsp';">Draw</div>
+                        <div class="ui fluid blue submit button" onclick="location.href = 'marbleResults.jsp';">Pick</div>
                     </div>
                 </div>
                 <br>
