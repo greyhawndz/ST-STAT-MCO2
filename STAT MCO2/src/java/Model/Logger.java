@@ -47,11 +47,38 @@ public class Logger {
         sb.append(System.lineSeparator());
         sb.append("Sample Success: " +successSample);
         sb.append(System.lineSeparator());
-        sb.append("Average Number of successes: " +numSuccess);
+        sb.append("Number of successes: " +numSuccess);
         sb.append(System.lineSeparator());
         sb.append("Actual Probability: " +actualProbability);
         sb.append(System.lineSeparator());
         sb.append("Ideal Probability: " +idealProbability);
+        sb.append(System.lineSeparator());
+        bw.write(sb.toString());
+        bw.newLine();
+        bw.close();
+        fw.close();
+    }
+    
+    public void logMultinomial(int experimentId, String objectExperiment, String experimentType, double numSuccess, double actualProb, double idealProb, int trials, int expTrials) throws IOException{
+        sb = new StringBuilder();
+        if(!logFile.exists()){
+            logFile.createNewFile();
+        }
+        FileWriter fw = new FileWriter(logFile.getAbsoluteFile(),true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        sb.append(objectExperiment +" Experiment " +experimentId + ":");
+        sb.append(System.lineSeparator());
+        sb.append("Experiment Type: " +experimentType);
+        sb.append(System.lineSeparator());
+        sb.append("Number of experiment repetitions: " +expTrials);
+        sb.append(System.lineSeparator());
+        sb.append("Number of trials per experiment: " +trials);
+        sb.append(System.lineSeparator());
+        sb.append("Number of successes: " +numSuccess);
+        sb.append(System.lineSeparator());
+        sb.append("Actual Probability: " +actualProb);
+        sb.append(System.lineSeparator());
+        sb.append("Ideal Probability: " +idealProb);
         sb.append(System.lineSeparator());
         bw.write(sb.toString());
         bw.newLine();
@@ -74,7 +101,7 @@ public class Logger {
         sb.append(System.lineSeparator());
         sb.append("Number of trials per experiment: " +trials);
         sb.append(System.lineSeparator());
-        sb.append("Average Number of successes: " +numSuccess);
+        sb.append("Number of successes: " +numSuccess);
         sb.append(System.lineSeparator());
         sb.append("Actual Probability: " +actualProbability);
         sb.append(System.lineSeparator());
