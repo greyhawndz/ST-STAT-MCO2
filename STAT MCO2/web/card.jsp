@@ -39,13 +39,13 @@
 
     <body>
         <div class="container" style="background-color: white;">
-            <div class="headersection coverFixed" style="background-image: url(images/cardHeader.jpg);  background-position: 0 -120px; ">
+            <div class="headersection coverFixed" style="background-image: url(images/cardHeader.png);  background-position: 0 -120px; ">
                 <jsp:include page="headerInverted.html"></jsp:include>
 
                     <h1 class="ui header inverted centered" style="font-size: 3rem; padding-top:140px;">
                         Experiment
                     </h1>
-                    <h1 class="ui header inverted centered" style="font-size: 7rem;">DRAW CARD
+                    <h1 class="ui header  inverted centered" style="font-size: 7rem;">DRAW CARD
                     </h1>
                     
                 </div>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="ui fluid blue submit button">Draw</div>
+                        <div class="ui fluid blue submit button" onclick="location.href = 'cardResults.jsp';">Draw</div>
                     </div>
                 </div>
                 <br>

@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <br>
-                        <div class="ui fluid blue submit button">Toss</div>
+                        <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
                     </div>
                 </div>
                 <br>

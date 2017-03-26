@@ -1,6 +1,6 @@
 <%-- 
-    Document   : coinResults
-    Created on : Mar 26, 2017, 4:57:20 PM
+    Document   : marbleResults
+    Created on : Mar 27, 2017, 1:30:08 AM
     Author     : glenn
 --%>
 
@@ -48,13 +48,13 @@ crossorigin="anonymous"></script>
 
 <body>
     <div class="container" style="background-color: white;">
-        <div class="headersection coverFixed" style="background-image: url(images/coinHeader.jpg);  background-position: 0 -120px; ">
+        <div class="headersection coverFixed" style="background-image: url(images/marbleHeader.jpg);  background-position: 0 -120px; ">
             <jsp:include page="headerInverted.html"></jsp:include>
 
                 <h1 class="ui header inverted centered" style="font-size: 3rem; padding-top:140px;">
                     Experiment results
                 </h1>
-                <h1 class="ui header inverted centered" style="font-size: 7rem;">COIN TOSS
+                <h1 class="ui header inverted centered" style="font-size: 7rem;">DRAW MARBLE
                 </h1>
 
             </div>
