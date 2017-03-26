@@ -84,7 +84,7 @@
                             </div>
                             <div class="field">
                                 <label>Probability of Success</label>
-                                <input type="text" placeholder="1 to 100">
+                                <input type="text" placeholder="0.0 to 1.0">
                             </div>
                         </div>
                         <br>
