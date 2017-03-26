@@ -15,10 +15,14 @@ import java.io.IOException;
  */
 public class Driver {
     public static void main(String[] args) throws IOException {
-        for(int i = 0; i < 10; i++){
-            CoinExperiment experiment = new CoinExperiment(1, 20, 0.5,12);
+            CoinExperiment experiment = new CoinExperiment(1, 20, 0.5,12,20);
             experiment.performExperiment(ExperimentType.binomial);
-        }
+        
+        
+        
+            CoinExperiment negExperiment = new CoinExperiment(4, 15, 0.5,3,20);
+            negExperiment.performExperiment(ExperimentType.negativeBinomial);
+        
         
         
         

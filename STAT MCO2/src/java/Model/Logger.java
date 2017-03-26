@@ -25,7 +25,7 @@ public class Logger {
         logFile = new File(FILE_NAME);
     }
     
-    public void logExperiment(int experimentId, String objectExperiment, String experimentType, int numSuccess, double actualProbability) throws IOException{
+    public void logExperiment(int experimentId, String objectExperiment, String experimentType, double numSuccess, double actualProbability, double idealProbability, int trials, int expTrials) throws IOException{
         sb = new StringBuilder();
         if(!logFile.exists()){
             logFile.createNewFile();
@@ -36,9 +36,15 @@ public class Logger {
         sb.append(System.lineSeparator());
         sb.append("Experiment Type: " +experimentType);
         sb.append(System.lineSeparator());
-        sb.append("Number of successes: " +numSuccess);
+        sb.append("Number of experiment repetitions: " +expTrials);
+        sb.append(System.lineSeparator());
+        sb.append("Number of trials per experiment: " +trials);
+        sb.append(System.lineSeparator());
+        sb.append("Average Number of successes: " +numSuccess);
         sb.append(System.lineSeparator());
         sb.append("Actual Probability: " +actualProbability);
+        sb.append(System.lineSeparator());
+        sb.append("Ideal Probability: " +idealProbability);
         sb.append(System.lineSeparator());
         bw.write(sb.toString());
         bw.newLine();
