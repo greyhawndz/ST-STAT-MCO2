@@ -19,7 +19,7 @@ public class Driver {
             //CoinExperiment experiment = new CoinExperiment(1, 20, 0.5,12,20);
             //experiment.performExperiment(ExperimentType.hyperGeometric);
             Experiment exp = new Experiment();
-            
+            exp.binomial(1, 2, 1000, 5, 0.5, "Binomial", "Coin");
             /*
             Experiment exp = new Experiment(7,2, 30, 26, 26, 5, "Card");
             exp = new Experiment(1, 5, 200, 20, 0.5, "Binomial", "Coin");

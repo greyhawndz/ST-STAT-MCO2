@@ -10,6 +10,12 @@ import Model.ExperimentResult;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,11 +52,22 @@ public class CoinServlet extends HttpServlet {
                 experiments = Integer.parseInt(request.getParameter("exp"));
                 prob = 0.5;
                 definition = Integer.parseInt(request.getParameter("def"));
-                result.add(exp.binomial(1, definition, experiments, trial, prob, "Binomial", category));
-                result.add(exp.binomial(2, definition, experiments, trial, prob, "Binomial", category));
-                result.add(exp.binomial(3, definition, experiments, trial, prob, "Binomial", category));
-                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                ExperimentResult expRes = exp.binomial(1, definition, experiments, trial, prob, "Binomial", category);
+                //result.add(exp.binomial(1, definition, experiments, trial, prob, "Binomial", category));
                 result = new ArrayList();
+                request.setAttribute("actual", expRes.getActual());
+                request.setAttribute("ideal", expRes.getIdeal());
+                request.setAttribute("mean", expRes.getMean());
+                request.setAttribute("median", expRes.getMedian());
+                request.setAttribute("mode", expRes.getMode());
+                request.setAttribute("sd", expRes.getSD());
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CoinServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+                request.getRequestDispatcher("/coinResults.jsp").forward(request, response);
                 break;
             case "neg" :
                 trial = Integer.parseInt(request.getParameter("trial"));

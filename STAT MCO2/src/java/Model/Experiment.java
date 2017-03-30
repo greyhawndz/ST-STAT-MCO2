@@ -7,6 +7,8 @@ package Model;
 
 import Helper.ExperimentType;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.logging.Level;
 import org.rosuda.REngine.*;
 import org.rosuda.REngine.Rserve.*;
@@ -24,7 +26,11 @@ public class Experiment {
     private REXP expression;
     private int id;
     private double numSuccess;
-    
+    private double mean;
+    private double median;
+    private double mode;
+    private double sd;
+    private ArrayList resultList = new ArrayList();
     public Experiment(){
         
     }
@@ -47,6 +53,7 @@ public class Experiment {
                 if(results[i] == x){
                     actualProb++;
                 }
+                    resultList.add(results[i]);
                 //System.out.println(results[i]);
             }
             numSuccess = (int) actualProb;
@@ -57,7 +64,7 @@ public class Experiment {
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
             logger.logHypergeometric(id, object, "Hypergeometric", numSuccess, actualProb, idealProb, n + m, m, k, x, nn);
             connection.close();
-            ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+            ExperimentResult er = new ExperimentResult(resultList, actualProb, idealProb, mean, median, mode, sd);
             return er;
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
@@ -79,13 +86,44 @@ public class Experiment {
                 connection = new RConnection();
                 expression = connection.eval("rbinom("+n+","+size+","+prob+")");
                 int[] results = expression.asIntegers();
+                //System.out.println("RESULTS LENGTH!! : " + results.length);
                 for (int i = 0; i < results.length; i++){
                     //If number drawn/taken is equal to number expected, actualProb + 1
                     if(results[i] == x){
                         actualProb++;
                     }
+                        resultList.add(results[i]);
                     //System.out.println(results[i]);
                 }
+//                System.out.println("!!!!!!" + Collections.frequency(resultList, 0));
+//                System.out.println(Collections.frequency(resultList, 1));
+//                System.out.println(Collections.frequency(resultList, 2));
+//                System.out.println(Collections.frequency(resultList, 3));
+                String xGroup = "x<-c(";
+                for(int j = 0; j < results.length-1; j++){
+                    xGroup+=results[j]+",";
+                }
+                xGroup+=results[results.length-1] + ")";
+                connection.voidEval(xGroup);
+                connection.voidEval("y<-hist(x)");
+                //png(filename="your/file/location/name.png")
+//plot(fit)
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/web/images/hist.png\")");
+                connection.voidEval("plot(y);graphics.off()");
+                //connection.voidEval("");
+                expression = connection.eval("mean("+xGroup+")");
+                mean = expression.asDouble();
+                expression = connection.eval("median("+xGroup+")");
+                median = expression.asDouble();
+                expression = connection.eval("sd("+xGroup+")");
+                sd = expression.asDouble();
+                connection.voidEval("getmode <- function(v) {\n" +
+"   uniqv <- unique(v)\n" +
+"   uniqv[which.max(tabulate(match(v, uniqv)))]\n" +
+"}");
+                expression = connection.eval("getmode("+xGroup+")");
+                mode = expression.asDouble();
+                System.out.println("MEAN : " + mean + " MEDIAN : " + median + " MODE : "+ mode + " SD : " + sd);
                 numSuccess = (int) actualProb;
                 //Number of success/Number of Trials
                 actualProb=(actualProb/results.length);
@@ -94,7 +132,7 @@ public class Experiment {
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
                 logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
                 connection.close();
-                ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+                ExperimentResult er = new ExperimentResult(resultList, actualProb, idealProb, mean, median, mode, sd);
                 return er;
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,6 +154,7 @@ public class Experiment {
                     if(results[i] == x){
                         actualProb++;
                     }
+                        resultList.add(results[i]);
                     //System.out.println(results[i]);
                 }
                 numSuccess = (int) actualProb;
@@ -126,7 +165,7 @@ public class Experiment {
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
                 logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
                 connection.close(); 
-                ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+                ExperimentResult er = new ExperimentResult(resultList, actualProb, idealProb, mean, median, mode, sd);
                 return er;
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,7 +215,7 @@ public class Experiment {
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
             logger.logMultinomial(id, object, "Multinomial", numSuccess, actualProb, idealProb, n, x.length);
             connection.close();
-            ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+            ExperimentResult er = new ExperimentResult(resultList, actualProb, idealProb, mean, median, mode, sd);
             return er;
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);

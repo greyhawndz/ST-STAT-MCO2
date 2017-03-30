@@ -68,26 +68,34 @@ crossorigin="anonymous"></script>
                 </h1>
                 <h1 class="ui header inverted centered" style="font-size: 7rem;">COIN TOSS
                 </h1>
-
+            
             </div>
            <div class="ui container sectioncontent ">
+               
+                <h5 class="ui header inverted left" style="font-size: 2rem; color: black;"> Actual Probability: ${actual} </h5>
+
+                <h5 class="ui header inverted left" style="font-size: 2rem; color: black;"> Ideal Probability: ${ideal} </h5>
+
                 <div class="ui container sectioncontent ">
                     <br>
                     <h1 class="ui horizontal divider header">
-                        Graph of Ideal
+                        Graph of Actual
                     </h1>
                     <!-- Chart code -->
-                    <script>
+<!--                    <script>
                         var chart = AmCharts.makeChart("chartdivIdeal", {
                             "type": "serial",
                             "theme": "light",
-                            "dataProvider": [{
-                                    "experiment": "1",
-                                    "ideal": 0.8
-                                }, {
-                                    "experiment": "2",
-                                    "ideal": 0.5
-                                }],
+                            "dataProvider": [
+                                
+//                                {
+//                                    "experiment": "1",
+//                                    "ideal": 0.8
+//                                }, {
+//                                    "experiment": "2",
+//                                    "ideal": 0.5
+//                                }
+                            ],
                             "valueAxes": [{
                                     "unit": "%",
                                     "gridColor": "#FFFFFF",
@@ -120,7 +128,8 @@ crossorigin="anonymous"></script>
                             }
 
                         });
-                    </script>
+                    </script>-->
+                    <div class="ui fluid image"> <img src="images/hist.png"> </div>
                     <div id="chartdivIdeal"></div>
                     <br>
                     <br>
@@ -275,10 +284,14 @@ crossorigin="anonymous"></script>
                     <br>
                     <br>
                     <h1 class="ui horizontal divider header">
-                        Summary Table
+                        Summary
                     </h1>
                     <br>
-                    <table class="ui definition table fluid">
+                    Mean : ${mean}<br>
+                    Median : ${median}<br>
+                    Mode : ${mode}<br>
+                    Standard Deviation : ${sd}<br>
+<!--                    <table class="ui definition table fluid">
                         <thead>
                             <tr><th></th>
                                 <th>Ideal</th>
@@ -313,7 +326,7 @@ crossorigin="anonymous"></script>
                             </tr>
 
                         </tbody>
-                    </table>
+                    </table>-->
                     <br>
                     <h1 class="ui horizontal divider header">
                         Frequency Table

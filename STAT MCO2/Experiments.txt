@@ -33,3 +33,187 @@ Number of successes: 19.0
 Actual Probability: 0.095
 Ideal Probability: 0.058593749999999986
 
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 2.0
+Actual Probability: 0.4
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 3.0
+Actual Probability: 0.6
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 2.0
+Actual Probability: 0.4
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 1.0
+Actual Probability: 0.2
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 0.0
+Actual Probability: 0.0
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 3.0
+Actual Probability: 0.6
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 1.0
+Actual Probability: 0.2
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 2.0
+Actual Probability: 0.4
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 2.0
+Actual Probability: 0.4
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 1.0
+Actual Probability: 0.2
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 1.0
+Actual Probability: 0.2
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 5
+Number of trials per experiment: 3
+Number of successes: 1.0
+Actual Probability: 0.2
+Ideal Probability: 0.37500000000000006
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 69.0
+Actual Probability: 0.345
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 73.0
+Actual Probability: 0.365
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 56.0
+Actual Probability: 0.28
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 61.0
+Actual Probability: 0.305
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 57.0
+Actual Probability: 0.285
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 71.0
+Actual Probability: 0.355
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 57.0
+Actual Probability: 0.285
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 71.0
+Actual Probability: 0.355
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 54.0
+Actual Probability: 0.27
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 5
+Number of successes: 68.0
+Actual Probability: 0.34
+Ideal Probability: 0.31249999999999994
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 1000
+Number of trials per experiment: 5
+Number of successes: 323.0
+Actual Probability: 0.323
+Ideal Probability: 0.31249999999999994
+
