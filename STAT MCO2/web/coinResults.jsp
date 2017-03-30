@@ -129,15 +129,15 @@ crossorigin="anonymous"></script>
 
                         });
                     </script>-->
-                    <div class="ui fluid image"> <img src="images/hist.png"> </div>
-                    <div id="chartdivIdeal"></div>
+                    <div class="ui fluid image"> <img src="images/barActual.png"> </div>
+                    <!--<div id="chartdivIdeal"></div>-->
                     <br>
                     <br>
                     <h1 class="ui horizontal divider header">
-                        Graph of Actual
+                        Graph of Ideal
                     </h1>
                     <!-- HTML -->
-                    <script>
+<!--                    <script>
                         var chart = AmCharts.makeChart("chartdivActual", {
                             "type": "serial",
                             "theme": "light",
@@ -180,18 +180,19 @@ crossorigin="anonymous"></script>
                             }
 
                         });
-                    </script>
-                    <div id="chartdivActual"></div>
+                    </script>-->
+                    <div class="ui fluid image"> <img src="images/barIdeal.png"> </div>
+                    <!--<div id="chartdivActual"></div>-->
                     <br>
 
 
 
-                    <h1 class="ui horizontal divider header">
+<!--                    <h1 class="ui horizontal divider header">
                         Graph of Actual and Ideal
                     </h1>
-                    <br>
+                    <br>-->
 
-                    <script>
+<!--                    <script>
                         var chart = AmCharts.makeChart("chartdivBoth", {
                             "theme": "light",
                             "type": "serial",
@@ -277,12 +278,11 @@ crossorigin="anonymous"></script>
                             }
 
                         });
-                    </script>
-
+                    </script>-->
                     <!-- HTML -->
-                    <div id="chartdivBoth"></div>	
+<!--                    <div id="chartdivBoth"></div>	
                     <br>
-                    <br>
+                    <br>-->
                     <h1 class="ui horizontal divider header">
                         Summary
                     </h1>

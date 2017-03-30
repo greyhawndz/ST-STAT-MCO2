@@ -45,6 +45,7 @@ public class CoinServlet extends HttpServlet {
         int trial;
         int experiments;
         double prob;
+        ExperimentResult expRes;
         int definition;
         switch(type){
             case "bin" : 
@@ -52,7 +53,7 @@ public class CoinServlet extends HttpServlet {
                 experiments = Integer.parseInt(request.getParameter("exp"));
                 prob = 0.5;
                 definition = Integer.parseInt(request.getParameter("def"));
-                ExperimentResult expRes = exp.binomial(1, definition, experiments, trial, prob, "Binomial", category);
+                expRes = exp.binomial(1, definition, experiments, trial, prob, "Binomial", category);
                 //result.add(exp.binomial(1, definition, experiments, trial, prob, "Binomial", category));
                 result = new ArrayList();
                 request.setAttribute("actual", expRes.getActual());
@@ -62,7 +63,7 @@ public class CoinServlet extends HttpServlet {
                 request.setAttribute("mode", expRes.getMode());
                 request.setAttribute("sd", expRes.getSD());
             try {
-                TimeUnit.SECONDS.sleep(1);
+                TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException ex) {
                 Logger.getLogger(CoinServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -74,11 +75,22 @@ public class CoinServlet extends HttpServlet {
                 experiments = Integer.parseInt(request.getParameter("exp"));
                 prob = 0.5;
                 definition = Integer.parseInt(request.getParameter("def"));
-                result.add(exp.binomial(4, definition, experiments, trial, prob, "Negative", category));
-                result.add(exp.binomial(5, definition, experiments, trial, prob, "Negative", category));
-                result.add(exp.binomial(6, definition, experiments, trial, prob, "Negative", category));
-                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                expRes = (exp.binomial(4, definition, experiments, trial, prob, "Negative", category));
+                //System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
                 result = new ArrayList();
+                request.setAttribute("actual", expRes.getActual());
+                request.setAttribute("ideal", expRes.getIdeal());
+                request.setAttribute("mean", expRes.getMean());
+                request.setAttribute("median", expRes.getMedian());
+                request.setAttribute("mode", expRes.getMode());
+                request.setAttribute("sd", expRes.getSD());
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CoinServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+                request.getRequestDispatcher("/coinResults.jsp").forward(request, response);
                 break;
             case "hyp" :
                 trial = Integer.parseInt(request.getParameter("trial"));
@@ -86,11 +98,22 @@ public class CoinServlet extends HttpServlet {
                 int population = Integer.parseInt(request.getParameter("pop"));
                 int popSuccess = Integer.parseInt(request.getParameter("popSuc"));
                 int correctTrials = Integer.parseInt(request.getParameter("correct"));
-                result.add(exp.hypergeometric(7, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
-                result.add(exp.hypergeometric(8, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
-                result.add(exp.hypergeometric(9, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
-                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                expRes = (exp.hypergeometric(7, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
+                //System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
                 result = new ArrayList();
+                request.setAttribute("actual", expRes.getActual());
+                request.setAttribute("ideal", expRes.getIdeal());
+                request.setAttribute("mean", expRes.getMean());
+                request.setAttribute("median", expRes.getMedian());
+                request.setAttribute("mode", expRes.getMode());
+                request.setAttribute("sd", expRes.getSD());
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(CoinServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+                request.getRequestDispatcher("/coinResults.jsp").forward(request, response);
                 break;
             case "mul" :
                 break;

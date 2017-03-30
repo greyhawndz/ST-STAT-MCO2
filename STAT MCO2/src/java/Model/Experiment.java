@@ -30,6 +30,7 @@ public class Experiment {
     private double median;
     private double mode;
     private double sd;
+    private String xGroup;
     private ArrayList resultList = new ArrayList();
     public Experiment(){
         
@@ -56,6 +57,33 @@ public class Experiment {
                     resultList.add(results[i]);
                 //System.out.println(results[i]);
             }
+                xGroup = "x<-c(";
+                for(int j = 0; j < results.length-1; j++){
+                    xGroup+=results[j]+",";
+                }
+                xGroup+=results[results.length-1] + ")";
+                connection.voidEval(xGroup);
+                
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barActual.png\")");
+                connection.voidEval("y<-barplot(table(x));graphics.off()");
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barIdeal.png\")");
+                connection.voidEval("y<-barplot((dhyper(0:"+(m)+","+m+","+n+","+k+")),space=10);graphics.off()");
+                
+                
+                expression = connection.eval("mean(x)");
+                mean = expression.asDouble();
+                expression = connection.eval("median(x)");
+                median = expression.asDouble();
+                expression = connection.eval("sd(x)");
+                sd = expression.asDouble();
+                connection.voidEval("getmode <- function(v) {\n" +
+"   uniqv <- unique(v)\n" +
+"   uniqv[which.max(tabulate(match(v, uniqv)))]\n" +
+"}");
+                expression = connection.eval("getmode(x)");
+                mode = expression.asDouble();
+                System.out.println("MEAN : " + mean + " MEDIAN : " + median + " MODE : "+ mode + " SD : " + sd);
+                
             numSuccess = (int) actualProb;
             //Number of success/Number of Trials
             actualProb=(actualProb/(nn));
@@ -86,6 +114,7 @@ public class Experiment {
                 connection = new RConnection();
                 expression = connection.eval("rbinom("+n+","+size+","+prob+")");
                 int[] results = expression.asIntegers();
+                
                 //System.out.println("RESULTS LENGTH!! : " + results.length);
                 for (int i = 0; i < results.length; i++){
                     //If number drawn/taken is equal to number expected, actualProb + 1
@@ -99,29 +128,37 @@ public class Experiment {
 //                System.out.println(Collections.frequency(resultList, 1));
 //                System.out.println(Collections.frequency(resultList, 2));
 //                System.out.println(Collections.frequency(resultList, 3));
-                String xGroup = "x<-c(";
+                xGroup = "x<-c(";
                 for(int j = 0; j < results.length-1; j++){
                     xGroup+=results[j]+",";
                 }
                 xGroup+=results[results.length-1] + ")";
                 connection.voidEval(xGroup);
-                connection.voidEval("y<-hist(x)");
+                //connection.voidEval("y<-hist(x,probability=TRUE)");
+                
                 //png(filename="your/file/location/name.png")
 //plot(fit)
-                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/web/images/hist.png\")");
-                connection.voidEval("plot(y);graphics.off()");
-                //connection.voidEval("");
-                expression = connection.eval("mean("+xGroup+")");
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barActual.png\")");
+                connection.voidEval("y<-barplot(table(x));graphics.off()");
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barIdeal.png\")");
+                connection.voidEval("y<-barplot((dbinom(0:"+size+","+size+","+prob+")),space=10);graphics.off()");
+                
+//                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/Overlap.png\")");
+//                connection.voidEval("barplot(table(x),col=rgb(1,0,0,.5);barplot((dbinom(0:"+size+","+size+","+prob+")),space=10, col=rgb(0,1,0,.5),add=TRUE);graphics.off()");
+                
+//barplot(dat$A, col=rgb(1, 0, 0, .5)) 
+//barplot(dat$B, col=rgb(0, 1, 0, .5), add=TRUE) 
+                expression = connection.eval("mean(x)");
                 mean = expression.asDouble();
-                expression = connection.eval("median("+xGroup+")");
+                expression = connection.eval("median(x)");
                 median = expression.asDouble();
-                expression = connection.eval("sd("+xGroup+")");
+                expression = connection.eval("sd(x)");
                 sd = expression.asDouble();
                 connection.voidEval("getmode <- function(v) {\n" +
 "   uniqv <- unique(v)\n" +
 "   uniqv[which.max(tabulate(match(v, uniqv)))]\n" +
 "}");
-                expression = connection.eval("getmode("+xGroup+")");
+                expression = connection.eval("getmode(x)");
                 mode = expression.asDouble();
                 System.out.println("MEAN : " + mean + " MEDIAN : " + median + " MODE : "+ mode + " SD : " + sd);
                 numSuccess = (int) actualProb;
@@ -157,6 +194,33 @@ public class Experiment {
                         resultList.add(results[i]);
                     //System.out.println(results[i]);
                 }
+                xGroup = "x<-c(";
+                for(int j = 0; j < results.length-1; j++){
+                    xGroup+=results[j]+",";
+                }
+                xGroup+=results[results.length-1] + ")";
+                connection.voidEval(xGroup);
+                
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barActual.png\")");
+                connection.voidEval("y<-barplot(table(x));graphics.off()");
+                connection.voidEval("png(filename=\"C:/Users/Paolo/Documents/ST-STAT-MCO2/STAT MCO2/build/web/images/barIdeal.png\")");
+                connection.voidEval("y<-barplot((dnbinom(0:"+size+","+size+","+prob+")),space=10);graphics.off()");
+                
+                
+                expression = connection.eval("mean(x)");
+                mean = expression.asDouble();
+                expression = connection.eval("median(x)");
+                median = expression.asDouble();
+                expression = connection.eval("sd(x)");
+                sd = expression.asDouble();
+                connection.voidEval("getmode <- function(v) {\n" +
+"   uniqv <- unique(v)\n" +
+"   uniqv[which.max(tabulate(match(v, uniqv)))]\n" +
+"}");
+                expression = connection.eval("getmode(x)");
+                mode = expression.asDouble();
+                System.out.println("MEAN : " + mean + " MEDIAN : " + median + " MODE : "+ mode + " SD : " + sd);
+                
                 numSuccess = (int) actualProb;
                 //Number of success/Number of Trials
                 actualProb=(actualProb/results.length);

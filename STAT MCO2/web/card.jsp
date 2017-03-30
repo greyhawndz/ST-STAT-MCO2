@@ -62,98 +62,107 @@
                     </div>
                     <div class="ui bottom attached tab segment active" data-tab="1">
                         <div class="ui form">
+                            <form action="CardServlet" method="post">
                             <div class="ui form">
                                 <div class="three fields">
                                     <div class="field">
+                                    <input type="hidden" name="type" value="bin">
                                         <label>Number of Trials</label>
-                                        <input type="text" placeholder="N">
+                                        <input type="text" name="trial" placeholder="N">
                                     </div>
                                     <div class="field">
                                         <label>Number of Experiment Simulations</label>
-                                        <input type="text" placeholder="10 to 100000">
+                                        <input type="text" name="exp" placeholder="10 to 100000">
                                     </div>                  
-                                    <div class="field">
+<!--                                    <div class="field">
                                         <label>Probability of Success</label>
-                                        <div class="ui input">
+                                        <div class="ui disabled input">
                                             <input type="text" placeholder="0.0 to 1.0">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="field">
                                         <label>Definition of Success</label>
-                                        <input type="text" placeholder="number">
+                                        <input type="text" name="def" placeholder="number">
                                     </div>
                                     <div class="field">
                                         <label>Suit</label>
-                                        <select class="ui fluid dropdown">
+                                        <select name="suit" class="ui fluid dropdown">
                                             <option value="">Select</option>
-                                            <option value="heads">Spade</option>
-                                            <option value="tails">Heart</option>
-                                            <option value="tails">Clover</option>
-                                            <option value="tails">Diamond</option>
-                                            <option value="tails">Black</option>
-                                            <option value="tails">Red</option>
+                                            <option value="spade">Spade</option>
+                                            <option value="heart">Heart</option>
+                                            <option value="clover">Clover</option>
+                                            <option value="diamond">Diamond</option>
+                                            <option value="black">Black</option>
+                                            <option value="red">Red</option>
                                        </select>
                                     </div>
                                 </div>
                                 <br>
-                                <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                                <input type="submit" class="ui fluid blue submit button" value="Draw">
                             </div>
+                            </form>
                         </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="2">
                         <div class="ui form">
                             <div class="ui form">
+                                <form action="CardServlet" method="post">
                                 <div class="three fields">
                                     <div class="field">
+                                    <input type="hidden" name="type" value="neg">
                                         <label>Number of Trials</label>
-                                        <input type="text" placeholder="N">
+                                        <input type="text" name="trial" placeholder="N">
                                     </div>
                                     <div class="field">
                                         <label>Number of Experiment Simulations</label>
-                                        <input type="text" placeholder="10 to 100000">
+                                        <input type="text" name="exp" placeholder="10 to 100000">
                                     </div>                  
-                                    <div class="field">
+<!--                                    <div class="field">
                                         <label>Probability of Success</label>
-                                        <div class="ui input">
-                                            <input type="text" placeholder="0.0 to 1.0" >
+                                        <div class="ui disabled input">
+                                            <input type="text" placeholder="0.0 to 1.0">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="field">
                                         <label>Definition of Success</label>
-                                        <input type="text" placeholder="number">
+                                        <input type="text" name="def" placeholder="number">
                                     </div>
                                     <div class="field">
                                         <label>Suit</label>
-                                        <select class="ui fluid dropdown">
+                                        <select name="suit" class="ui fluid dropdown">
                                             <option value="">Select</option>
-                                            <option value="heads">Spade</option>
-                                            <option value="tails">Heart</option>
-                                            <option value="tails">Clover</option>
-                                            <option value="tails">Diamond</option>
-                                            <option value="tails">Black</option>
-                                            <option value="tails">Red</option>
+                                            <option value="spade">Spade</option>
+                                            <option value="heart">Heart</option>
+                                            <option value="clover">Clover</option>
+                                            <option value="diamond">Diamond</option>
+                                            <option value="black">Black</option>
+                                            <option value="red">Red</option>
                                         </select>
                                     </div>
                                 </div>
                                 <br>
-                                <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                                <input type="submit" class="ui fluid blue submit button" value="Draw">
+                                </form>
                             </div>
                         </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="3">
                         <div class="ui form">
+                            <form action="CardServlet" method="post">
                             <div class="three fields">
                                 <div class="field">
+                                    <input type="hidden" name="type" value="hyp">
+                                    <input type="hidden" name="suit" value="red">
                                     <label>Number of Trials</label>
-                                    <input type="text" placeholder="N">
+                                    <input name="trial" type="text" placeholder="N">
                                 </div>
                                 <div class="field">
                                     <label>Number of Items in the Population</label>
-                                    <input type="text" placeholder="0 to 52">
+                                    <input name="pop" type="text" placeholder="0 to 52">
                                 </div> 
                                 <div class="field">
                                     <label>Number of Success in Population</label>
-                                    <input type="text" placeholder="number">
+                                    <input name="popSuc" type="text" placeholder="number">
                                 </div>
 
                             </div>
@@ -161,18 +170,19 @@
 
                                 <div class="field">
                                     <label>Number of Experiment Simulations</label>
-                                    <input type="text" placeholder="10 to 100000">
+                                    <input name="exp" type="text" placeholder="10 to 100000">
                                 </div>   
                                 <div class="field">
                                     <label>Number of Correct Trials</label>
                                     <div class="ui input">
-                                        <input type="text" placeholder="0 to N" >
+                                        <input name="correct" type="text" placeholder="0 to N" >
                                     </div>
                                 </div>
                             </div>
                             <br>
-                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                            <input type="submit" class="ui fluid blue submit button" value="Draw">
                         </div>
+                    </form>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="4">
                     </div>
