@@ -53,48 +53,115 @@
                         Input fields
                     </h1>
                     <br>
+                    <div id="distributionsTab" class="ui top attached tabular menu" style="margin-top: 30px;">
+                        <div class="item active" data-tab="1">Binomial</div>
+                        <div class="item" data-tab="2">Negative Binomial</div>
+                        <div class="item" data-tab="3">Hypergeometric</div>
+                        <div class="item" data-tab="4">Multinomial</div>
+                    </div>
+                    <div class="ui bottom attached tab segment active" data-tab="1">
                     <div class="ui form">
-                        <div class="field">
-                            <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
-                                <option value="32">32</option>
-                                <option value="33">33</option>
-                                <option value="34">34</option>
-                                <option value="35">35</option>
-                                <option value="36">36</option>
-
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui input">
+                                        <input type="text" placeholder="0.0 to 1.0" >
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Definition of Success</label>
+                                    <input type="text" placeholder="number">
+                                </div>
+                               
+                            </div>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                        </div>
+                    </div>
+                     <div class="ui bottom attached tab segment" data-tab="2">
+                          <div class="ui form">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui input">
+                                        <input type="text" placeholder="0.0 to 1.0" >
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Definition of Success</label>
+                                    <input type="text" placeholder="number">
+                                </div>
                                 
-                            </select>
+                            </div>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
                         </div>
-                        <div class="three fields">
-                            <div class="field">
-                                <label>Number of Trials</label>
-                                <input type="text" placeholder="N">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="3">
+                        <div class="ui form">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Items in the Population</label>
+                                    <input type="text" placeholder="number">
+                                </div> 
+                                  <div class="field">
+                                    <label>Number of Success in Population</label>
+                                    <input type="text" placeholder="number">
+                                </div>
                             </div>
-                            <div class="field">
-                                <label>Number of Experiment Simulations</label>
-                                <input type="text" placeholder="10 to 100000">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>                  
+                                <div class="field">
+                                    <label>Probability of Success</label>
+                                    <div class="ui input">
+                                        <input type="text" placeholder="0.0 to 1.0">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Number of Correct Trials</label>
+                                    <div class="ui input">
+                                        <input type="text" placeholder="0 to N" >
+                                    </div>
+                                </div>
                             </div>
-                            <div class="field">
-                                <label>Probability of Success</label>
-                                <input type="text" placeholder="1 to 100">
-                            </div>
+                            <br>
+                            
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
                         </div>
-                        <br>
-                        <div class="ui fluid blue submit button" onclick="location.href = 'marbleResults.jsp';">Pick</div>
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="4">
                     </div>
                 </div>
                 <br>
             </div>
+            <script>
+                $('#distributionsTab .item')
+                    .tab();
 
+            </script>
         <jsp:include page="footer.html"></jsp:include>
 
     </body>

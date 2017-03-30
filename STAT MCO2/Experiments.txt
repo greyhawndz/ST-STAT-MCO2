@@ -1,0 +1,35 @@
+Card Experiment 7:
+Experiment Type: Hypergeometric
+Number of experiment repetitions: 30
+Total Population: 52
+Successes in Population: 26
+Sample Size: 5
+Sample Success: 2
+Number of successes: 10.0
+Actual Probability: 0.3333333333333333
+Ideal Probability: 0.3251300520208083
+
+Coin Experiment 1:
+Experiment Type: Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 20
+Number of successes: 4.0
+Actual Probability: 0.02
+Ideal Probability: 0.014785766601562495
+
+Coin Experiment 4:
+Experiment Type: Negative Binomial
+Number of experiment repetitions: 200
+Number of trials per experiment: 2
+Number of successes: 27.0
+Actual Probability: 0.135
+Ideal Probability: 0.12499999999999999
+
+Card Experiment 10:
+Experiment Type: Multinomial
+Number of experiment repetitions: 4
+Number of trials per experiment: 200
+Number of successes: 19.0
+Actual Probability: 0.095
+Ideal Probability: 0.058593749999999986
+

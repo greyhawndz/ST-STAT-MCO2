@@ -6,6 +6,7 @@
 package Model;
 
 import Helper.ExperimentType;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.logging.Level;
 import org.rosuda.REngine.*;
@@ -22,8 +23,12 @@ public class Experiment {
     private double actualProb;
     private RConnection connection;
     private REXP expression;
+    private int id;
+    private double numSuccess;
     //Hypergeometric
-    public Experiment(int x, int nn, int m, int n, int k){
+    public Experiment(int id,int x, int nn, int m, int n, int k, String object) throws IOException{
+        this.id = id;
+        logger = new Logger();
         connection = null;
         expression = null;
         actualProb = 0;
@@ -40,11 +45,13 @@ public class Experiment {
                 }
                 //System.out.println(results[i]);
             }
+            numSuccess = (int) actualProb;
             //Number of success/Number of Trials
             actualProb=(actualProb/(nn));
             expression = connection.eval("dhyper("+x+","+m+","+n+","+k+")");
             idealProb = expression.asDouble();
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
+            logger.logHypergeometric(id, object, "Hypergeometric", numSuccess, actualProb, idealProb, n + m, m, k, x, nn);
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -52,8 +59,10 @@ public class Experiment {
     }
     
     //Binomial and Negative Binomial
-    public Experiment(int x, int n, int size, double prob, String binom){
-        if(binom.equals("pos")){
+    public Experiment(int id,int x, int n, int size, double prob, String binom, String object) throws IOException{
+        this.id = id;
+        logger = new Logger();
+        if(binom.equals("Binomial")){
             connection = null;
             expression = null;
             actualProb = 0;
@@ -70,11 +79,13 @@ public class Experiment {
                     }
                     //System.out.println(results[i]);
                 }
+                numSuccess = (int) actualProb;
                 //Number of success/Number of Trials
                 actualProb=(actualProb/results.length);
                 expression = connection.eval("dbinom("+x+","+size+","+prob+")");
                 idealProb = expression.asDouble();
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
+                logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -97,11 +108,13 @@ public class Experiment {
                     }
                     //System.out.println(results[i]);
                 }
+                numSuccess = (int) actualProb;
                 //Number of success/Number of Trials
                 actualProb=(actualProb/results.length);
                 expression = connection.eval("dnbinom("+x+","+size+","+prob+")");
                 idealProb = expression.asDouble();
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
+                logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -110,7 +123,9 @@ public class Experiment {
     }
     
     //Multinomial
-    public Experiment(int[] x, int n, int size, String prob){
+    public Experiment(int id,int[] x, int n, int size, String prob, String object) throws IOException{
+        this.id = id;
+        logger = new Logger();
         connection = null;
         expression = null;
         actualProb = 0;
@@ -140,11 +155,13 @@ public class Experiment {
                 }
                 check = 0;
             }
+            numSuccess = (int)actualProb;
             //Number of success/Number of Trials
             actualProb=(actualProb/n);
             expression = connection.eval("dmultinom("+xGroup+","+size+","+prob+")");
             idealProb = expression.asDouble();
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
+            logger.logMultinomial(id, object, "Multinomial", numSuccess, actualProb, idealProb, n, x.length);
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
         }

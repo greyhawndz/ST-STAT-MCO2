@@ -7,7 +7,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-   <head>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -47,53 +47,143 @@
                     </h1>
                     <h1 class="ui header  inverted centered" style="font-size: 7rem;">DRAW CARD
                     </h1>
-                    
+
                 </div>
                 <div class="ui container sectioncontent ">
                     <h1 class="ui horizontal divider header">
                         Input fields
                     </h1>
                     <br>
-                    <div class="ui form">
-                        <div class="field">
-                            <label>ID</label>
-                            <select class="ui fluid dropdown">
-                                <option value="">Select</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                            </select>
+                    <div id="distributionsTab" class="ui top attached tabular menu" style="margin-top: 30px;">
+                        <div class="item active" data-tab="1">Binomial</div>
+                        <div class="item" data-tab="2">Negative Binomial</div>
+                        <div class="item" data-tab="3">Hypergeometric</div>
+                        <div class="item" data-tab="4">Multinomial</div>
+                    </div>
+                    <div class="ui bottom attached tab segment active" data-tab="1">
+                        <div class="ui form">
+                            <div class="ui form">
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label>Number of Trials</label>
+                                        <input type="text" placeholder="N">
+                                    </div>
+                                    <div class="field">
+                                        <label>Number of Experiment Simulations</label>
+                                        <input type="text" placeholder="10 to 100000">
+                                    </div>                  
+                                    <div class="field">
+                                        <label>Probability of Success</label>
+                                        <div class="ui input">
+                                            <input type="text" placeholder="0.0 to 1.0">
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Definition of Success</label>
+                                        <input type="text" placeholder="number">
+                                    </div>
+                                    <div class="field">
+                                        <label>Suit</label>
+                                        <select class="ui fluid dropdown">
+                                            <option value="">Select</option>
+                                            <option value="heads">Spade</option>
+                                            <option value="tails">Heart</option>
+                                            <option value="tails">Clover</option>
+                                            <option value="tails">Diamond</option>
+                                            <option value="tails">Black</option>
+                                            <option value="tails">Red</option>
+                                       </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                            </div>
                         </div>
-                        <div class="three fields">
-                            <div class="field">
-                                <label>Number of Trials</label>
-                                <input type="text" placeholder="N">
-                            </div>
-                            <div class="field">
-                                <label>Number of Experiment Simulations</label>
-                                <input type="text" placeholder="10 to 100000">
-                            </div>
-                            <div class="field">
-                                <label>Probability of Success</label>
-                                <input type="text" placeholder="1 to 100">
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="2">
+                        <div class="ui form">
+                            <div class="ui form">
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label>Number of Trials</label>
+                                        <input type="text" placeholder="N">
+                                    </div>
+                                    <div class="field">
+                                        <label>Number of Experiment Simulations</label>
+                                        <input type="text" placeholder="10 to 100000">
+                                    </div>                  
+                                    <div class="field">
+                                        <label>Probability of Success</label>
+                                        <div class="ui input">
+                                            <input type="text" placeholder="0.0 to 1.0" >
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>Definition of Success</label>
+                                        <input type="text" placeholder="number">
+                                    </div>
+                                    <div class="field">
+                                        <label>Suit</label>
+                                        <select class="ui fluid dropdown">
+                                            <option value="">Select</option>
+                                            <option value="heads">Spade</option>
+                                            <option value="tails">Heart</option>
+                                            <option value="tails">Clover</option>
+                                            <option value="tails">Diamond</option>
+                                            <option value="tails">Black</option>
+                                            <option value="tails">Red</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
                             </div>
                         </div>
-                        <br>
-                        <div class="ui fluid blue submit button" onclick="location.href = 'cardResults.jsp';">Draw</div>
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="3">
+                        <div class="ui form">
+                            <div class="three fields">
+                                <div class="field">
+                                    <label>Number of Trials</label>
+                                    <input type="text" placeholder="N">
+                                </div>
+                                <div class="field">
+                                    <label>Number of Items in the Population</label>
+                                    <input type="text" placeholder="0 to 52">
+                                </div> 
+                                <div class="field">
+                                    <label>Number of Success in Population</label>
+                                    <input type="text" placeholder="number">
+                                </div>
+
+                            </div>
+                            <div class="two fields">
+
+                                <div class="field">
+                                    <label>Number of Experiment Simulations</label>
+                                    <input type="text" placeholder="10 to 100000">
+                                </div>   
+                                <div class="field">
+                                    <label>Number of Correct Trials</label>
+                                    <div class="ui input">
+                                        <input type="text" placeholder="0 to N" >
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                        </div>
+                    </div>
+                    <div class="ui bottom attached tab segment" data-tab="4">
                     </div>
                 </div>
                 <br>
             </div>
+            <script>
+                $('#distributionsTab .item')
+                        .tab();
 
+            </script>
         <jsp:include page="footer.html"></jsp:include>
 
     </body>

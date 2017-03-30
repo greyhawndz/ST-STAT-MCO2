@@ -38,11 +38,22 @@ crossorigin="anonymous"></script>
         margin-top: 70px;
     }
 
-    #chartdiv {
+    #chartdivBoth {
         width		: 100%;
         height		: 500px;
         font-size	: 11px;
     }	
+    
+    #chartdivIdeal {
+        width		: 100%;
+        height		: 500px;
+        font-size	: 11px;
+    }
+    #chartdivActual {
+        width		: 100%;
+        height		: 500px;
+        font-size	: 11px;
+    }
 </style>
 
 <body>
@@ -58,13 +69,118 @@ crossorigin="anonymous"></script>
 
             </div>
             <div class="ui container sectioncontent ">
+                <br>
                 <h1 class="ui horizontal divider header">
-                    Graph
+                    Graph of Ideal
+                </h1>
+                <!-- Chart code -->
+                <script>
+                    var chart = AmCharts.makeChart("chartdivIdeal", {
+                        "type": "serial",
+                        "theme": "light",
+                        "dataProvider": [{
+                                "experiment": "1",
+                                "ideal": 0.8
+                            }, {
+                                "experiment": "2",
+                                "ideal": 0.5
+                            }],
+                        "valueAxes": [{
+                                "unit": "%",
+                                "gridColor": "#FFFFFF",
+                                "gridAlpha": 0.2,
+                                "dashLength": 0
+                            }],
+                        "gridAboveGraphs": true,
+                        "startDuration": 1,
+                        "graphs": [{
+                                "balloonText": "Value: <b>[[value]]</b>",
+                                "fillAlphas": 0.8,
+                                "lineAlpha": 0.2,
+                                "type": "column",
+                                "valueField": "ideal"
+                            }],
+                        "chartCursor": {
+                            "categoryBalloonEnabled": false,
+                            "cursorAlpha": 0,
+                            "zoomable": false
+                        },
+                        "categoryField": "experiment",
+                        "categoryAxis": {
+                            "gridPosition": "start",
+                            "gridAlpha": 0,
+                            "tickPosition": "start",
+                            "tickLength": 20
+                        },
+                        "export": {
+                            "enabled": true
+                        }
+
+                    });
+                </script>
+                  <div id="chartdivIdeal"></div>
+                <br>
+ <br>
+                <h1 class="ui horizontal divider header">
+                    Graph of Actual
+                </h1>
+                <!-- HTML -->
+                    <script>
+                    var chart = AmCharts.makeChart("chartdivActual", {
+                        "type": "serial",
+                        "theme": "light",
+                        "dataProvider": [{
+                                "experiment": "1",
+                                "ideal": 0.8
+                            }, {
+                                "experiment": "2",
+                                "ideal": 0.5
+                            }],
+                        "valueAxes": [{
+                                "unit": "%",
+                                "gridColor": "#FFFFFF",
+                                "gridAlpha": 0.2,
+                                "dashLength": 0
+                            }],
+                        "gridAboveGraphs": true,
+                        "startDuration": 1,
+                        "graphs": [{
+                                "balloonText": "Value: <b>[[value]]</b>",
+                                "fillAlphas": 0.8,
+                                "lineAlpha": 0.2,
+                                "type": "column",
+                                "valueField": "ideal"
+                            }],
+                        "chartCursor": {
+                            "categoryBalloonEnabled": false,
+                            "cursorAlpha": 0,
+                            "zoomable": false
+                        },
+                        "categoryField": "experiment",
+                        "categoryAxis": {
+                            "gridPosition": "start",
+                            "gridAlpha": 0,
+                            "tickPosition": "start",
+                            "tickLength": 20
+                        },
+                        "export": {
+                            "enabled": true
+                        }
+
+                    });
+                </script>
+                <div id="chartdivActual"></div>
+                <br>
+                
+          
+              
+                <h1 class="ui horizontal divider header">
+                    Graph of Actual and Ideal
                 </h1>
                 <br>
 
                 <script>
-                    var chart = AmCharts.makeChart("chartdiv", {
+                    var chart = AmCharts.makeChart("chartdivBoth", {
                         "theme": "light",
                         "type": "serial",
                         "dataProvider": [{
@@ -152,16 +268,57 @@ crossorigin="anonymous"></script>
                 </script>
 
                 <!-- HTML -->
-                <div id="chartdiv"></div>	
+                <div id="chartdivBoth"></div>	
                 <br>
+                <br>
+                <h1 class="ui horizontal divider header">
+                    Summary Table
+                </h1>
+                <br>
+                <table class="ui definition table fluid">
+                    <thead>
+                        <tr><th></th>
+                            <th>Ideal</th>
+                            <th>Actual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mean</td>
+                            <td>None</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                            <td>Variance</td>
+                            <td>None</td>
+                            <td>None</td>
+                        </tr>
+                        <tr>
+                        <td>Standard Deviation</td>
+                           <td>None</td>
+                           <td>None</td>
+                        </tr>
+                        <tr>
+                        <td>Median</td>
+                          <td>None</td>
+                          <td>None</td>
+                        </tr>
+                        <tr>
+                       <td>Mode</td>
+                           <td>None</td>
+                           <td>None</td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
                 <br>
                 <h1 class="ui horizontal divider header">
                     Frequency Table
                 </h1>
                 <br>
-                <table class="ui celled table">
+                <table class="ui definition celled table">
                     <thead>
-                        <tr><th>Interval</th>
+                        <tr><th></th>
                             <th>Ideal</th>
                             <th>Actual</th>
                         </tr>
