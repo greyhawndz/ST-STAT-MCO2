@@ -19,6 +19,7 @@ crossorigin="anonymous"></script>
 <script src="https://www.amcharts.com/lib/3/serial.js"></script>
 <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
 <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
 <title>Coin</title>
 <style>
@@ -26,8 +27,7 @@ crossorigin="anonymous"></script>
         background-color: #ffffff;
         position: relative;
         z-index: 1;
-    }<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
-
+    }
     .coverFixed {
         background-size: cover;
         background-attachment: fixed;

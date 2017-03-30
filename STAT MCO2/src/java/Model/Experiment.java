@@ -7,7 +7,6 @@ package Model;
 
 import Helper.ExperimentType;
 import java.io.IOException;
-import java.util.Collections;
 import java.util.logging.Level;
 import org.rosuda.REngine.*;
 import org.rosuda.REngine.Rserve.*;
@@ -25,8 +24,13 @@ public class Experiment {
     private REXP expression;
     private int id;
     private double numSuccess;
+    
+    public Experiment(){
+        
+    }
+    
     //Hypergeometric
-    public Experiment(int id,int x, int nn, int m, int n, int k, String object) throws IOException{
+    public ExperimentResult hypergeometric(int id,int x, int nn, int m, int n, int k, String object) throws IOException{
         this.id = id;
         logger = new Logger();
         connection = null;
@@ -52,14 +56,17 @@ public class Experiment {
             idealProb = expression.asDouble();
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
             logger.logHypergeometric(id, object, "Hypergeometric", numSuccess, actualProb, idealProb, n + m, m, k, x, nn);
+            connection.close();
+            ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+            return er;
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-        connection.close();
     }
     
     //Binomial and Negative Binomial
-    public Experiment(int id,int x, int n, int size, double prob, String binom, String object) throws IOException{
+    public ExperimentResult binomial(int id,int x, int n, int size, double prob, String binom, String object) throws IOException{
         this.id = id;
         logger = new Logger();
         if(binom.equals("Binomial")){
@@ -86,10 +93,13 @@ public class Experiment {
                 idealProb = expression.asDouble();
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
                 logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
+                connection.close();
+                ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+                return er;
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
             }
-            connection.close();
         }
         else{
             connection = null;
@@ -115,15 +125,18 @@ public class Experiment {
                 idealProb = expression.asDouble();
                 System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
                 logger.logExperiment(id, object, binom, numSuccess, actualProb, idealProb, size, results.length);
+                connection.close(); 
+                ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+                return er;
             } catch (RserveException | REXPMismatchException ex) {
                 java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
+                return null;
             }
-            connection.close();
         }
     }
     
     //Multinomial
-    public Experiment(int id,int[] x, int n, int size, String prob, String object) throws IOException{
+    public ExperimentResult multinomial(int id,int[] x, int n, int size, String prob, String object) throws IOException{
         this.id = id;
         logger = new Logger();
         connection = null;
@@ -162,9 +175,12 @@ public class Experiment {
             idealProb = expression.asDouble();
             System.out.println("Actual : " + actualProb + "Ideal : " + idealProb);
             logger.logMultinomial(id, object, "Multinomial", numSuccess, actualProb, idealProb, n, x.length);
+            connection.close();
+            ExperimentResult er = new ExperimentResult(results, actualProb, idealProb);
+            return er;
         } catch (RserveException | REXPMismatchException ex) {
             java.util.logging.Logger.getLogger(CoinExperiment.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
         }
-        connection.close();
     }
 }

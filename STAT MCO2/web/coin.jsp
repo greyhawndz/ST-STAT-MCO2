@@ -63,14 +63,16 @@
                     </div>
                     <div class="ui bottom attached tab segment active" data-tab="1">
                         <div class="ui form">
+                            <form action="CoinServlet" method="post">
                             <div class="five fields">
                                 <div class="field">
+                                    <input type="hidden" name="type" value="bin">
                                     <label>Number of Trials</label>
-                                    <input type="text" placeholder="N">
+                                    <input type="text" name="trial" placeholder="N">
                                 </div>
                                 <div class="field">
                                     <label>Number of Experiment Simulations</label>
-                                    <input type="text" placeholder="10 to 100000">
+                                    <input type="text" name="exp" placeholder="10 to 100000">
                                 </div>                  
                                 <div class="field">
                                     <label>Probability of Success</label>
@@ -80,7 +82,7 @@
                                 </div>
                                 <div class="field">
                                     <label>Definition of Success</label>
-                                    <input type="text" placeholder="number">
+                                    <input type="text" name ="def" placeholder="number">
                                 </div>
                                 <div class="field">
                                     <label>Heads or Tails</label>
@@ -92,19 +94,23 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                            <input class="ui fluid blue submit button" type="submit" value="Toss">
+                            <!--<div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>-->
+                            </form>
                         </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="2">
                         <div class="ui form">
+                            <form action="CoinServlet" method="post">
                             <div class="five fields">
                                 <div class="field">
+                                    <input type="hidden" name="type" value="neg">
                                     <label>Number of Trials</label>
-                                    <input type="text" placeholder="N">
+                                    <input type="text" name="trial" placeholder="N">
                                 </div>
                                 <div class="field">
                                     <label>Number of Experiment Simulations</label>
-                                    <input type="text" placeholder="10 to 100000">
+                                    <input type="text" name="exp" placeholder="10 to 100000">
                                 </div>                  
                                 <div class="field">
                                     <label>Probability of Success</label>
@@ -114,7 +120,7 @@
                                 </div>
                                 <div class="field">
                                     <label>Definition of Success</label>
-                                    <input type="text" placeholder="number">
+                                    <input type="text" name="def" placeholder="number">
                                 </div>
                                 <div class="field">
                                     <label>Heads or Tails</label>
@@ -126,23 +132,26 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                            <input type="submit" class="ui fluid blue submit button" value="Toss">
+                            </form>
                         </div>
                     </div>
                     <div class="ui bottom attached tab segment" data-tab="3">
                         <div class="ui form">
+                            <form action="CoinServlet" method="post">
                             <div class="three fields">
                                 <div class="field">
+                                    <input type="hidden" name="type" value="hyp">
                                     <label>Number of Trials</label>
-                                    <input type="text" placeholder="N">
+                                    <input type="text" name="trial" placeholder="N">
                                 </div>
                                 <div class="field">
                                     <label>Number of Items in the Population</label>
-                                    <input type="text" placeholder="0 to N">
+                                    <input type="text" name="pop" placeholder="0 to N">
                                 </div> 
                                   <div class="field">
                                     <label>Number of Success in Population</label>
-                                    <input type="text" placeholder="number">
+                                    <input type="text" name="popSuc" placeholder="number">
                                 </div>
                                
                             </div>
@@ -158,25 +167,20 @@
                                 </div>
                                 <div class="field">
                                     <label>Number of Experiment Simulations</label>
-                                    <input type="text" placeholder="10 to 100000">
-                                </div>                  
-                                <div class="field">
-                                    <label>Probability of Success</label>
-                                    <div class="ui disabled input">
-                                        <input type="text" placeholder="50" value = "50">
-                                    </div>
+                                    <input type="text" name="exp" placeholder="10 to 100000">
                                 </div>
                                  <div class="field">
                                     <label>Number of Correct Trials</label>
-                                    <div class="ui disabled input">
-                                        <input type="text" placeholder="0 to N" >
+                                    <div class="field">
+                                        <input type="text" name="correct" placeholder="0 to N" >
                                     </div>
                                 </div>
 
 
                             </div>
                             <br>
-                            <div class="ui fluid blue submit button" onclick="location.href = 'coinResults.jsp';">Toss</div>
+                            <input type="submit" class="ui fluid blue submit button" value="Toss">
+                        </form>
                         </div>
                         
                     </div>
