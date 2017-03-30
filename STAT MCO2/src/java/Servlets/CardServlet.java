@@ -5,8 +5,11 @@
  */
 package Servlets;
 
+import Model.Experiment;
+import Model.ExperimentResult;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,18 +32,65 @@ public class CardServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CardServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CardServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String category = "Card";
+        String type = request.getParameter("type");
+        String suit = request.getParameter("suit");
+        Experiment exp = new Experiment();
+        ArrayList<ExperimentResult> result = new ArrayList();
+        int trial;
+        int experiments;
+        double prob = 0.0;
+        int definition;
+        System.out.println("Type: " +type);
+        switch(suit){
+            case "spade": System.out.println("here");
+            case "heart":
+            case "clover":
+            case "diamond": prob = 0.25;
+                            break;
+            case "black":
+            case "red": prob = 0.5;
+                        break;
+        }
+        System.out.println("suit:" +suit);
+        System.out.println("prob: " +prob);
+        switch(type){
+            case "bin" : 
+                trial = Integer.parseInt(request.getParameter("trial"));
+                experiments = Integer.parseInt(request.getParameter("exp"));
+               
+                definition = Integer.parseInt(request.getParameter("def"));
+                result.add(exp.binomial(1, definition, experiments, trial, prob, "Binomial", category));
+                result.add(exp.binomial(2, definition, experiments, trial, prob, "Binomial", category));
+                result.add(exp.binomial(3, definition, experiments, trial, prob, "Binomial", category));
+                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                result = new ArrayList();
+                break;
+            case "neg" :
+                trial = Integer.parseInt(request.getParameter("trial"));
+                experiments = Integer.parseInt(request.getParameter("exp"));
+               
+                definition = Integer.parseInt(request.getParameter("def"));
+                result.add(exp.binomial(4, definition, experiments, trial, prob, "Negative", category));
+                result.add(exp.binomial(5, definition, experiments, trial, prob, "Negative", category));
+                result.add(exp.binomial(6, definition, experiments, trial, prob, "Negative", category));
+                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                result = new ArrayList();
+                break;
+            case "hyp" :
+                trial = Integer.parseInt(request.getParameter("trial"));
+                experiments = Integer.parseInt(request.getParameter("exp"));
+                int population = Integer.parseInt(request.getParameter("pop"));
+                int popSuccess = Integer.parseInt(request.getParameter("popSuc"));
+                int correctTrials = Integer.parseInt(request.getParameter("correct"));
+                result.add(exp.hypergeometric(7, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
+                result.add(exp.hypergeometric(8, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
+                result.add(exp.hypergeometric(9, correctTrials, experiments, popSuccess, population - popSuccess, trial, category));
+                System.out.println(result.get(0).getActual() + " " + result.get(0).getIdeal());
+                result = new ArrayList();
+                break;
+            case "mul" :
+                break;
         }
     }
 
